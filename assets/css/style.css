@@ -534,6 +534,41 @@ main {
 }
 
 
+/* Technology  */
+
+.tech-list{
+  gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.tech-item{
+  display: flex;
+  align-items: center !important;
+  padding: 13px !important;
+}
+
+@media (max-width: 576px) {
+
+  .tech-list{
+  gap: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+
+  .tech-item{
+  display: flex;
+  align-items: center !important;
+  justify-content: space-around !important;
+  padding: 13px !important;
+}
+
+.tech-image, .tech-info{
+  margin-bottom: 0 !important;
+}
+}
+
 /**
  * #testimonials 
  */
