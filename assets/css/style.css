@@ -560,12 +560,12 @@ main {
   .tech-item{
   display: flex;
   align-items: center !important;
-  justify-content: space-around !important;
+  justify-content: flex-start !important;
   padding: 13px !important;
 }
 
 .tech-image, .tech-info{
-  margin-bottom: 0 !important;
+  margin: 0 5px 0 !important;
 }
 }
 
