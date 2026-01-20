@@ -157,3 +157,29 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+
+
+// clients scroll navigation variables
+const clientsList = document.querySelector("[data-clients-list]");
+const clientsNavBtnLeft = document.querySelector(".clients-nav-btn-left");
+const clientsNavBtnRight = document.querySelector(".clients-nav-btn-right");
+
+// clients scroll navigation functionality
+if (clientsList && clientsNavBtnLeft && clientsNavBtnRight) {
+  const scrollAmount = 300; // pixels to scroll
+  
+  clientsNavBtnLeft.addEventListener("click", function () {
+    clientsList.scrollBy({
+      left: -scrollAmount,
+      behavior: "smooth"
+    });
+  });
+  
+  clientsNavBtnRight.addEventListener("click", function () {
+    clientsList.scrollBy({
+      left: scrollAmount,
+      behavior: "smooth"
+    });
+  });
+}
