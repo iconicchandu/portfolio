@@ -15,14 +15,16 @@
     <!--
             - custom css link
           -->
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css?v=2.0">
 
     <!--
             - google font link
           -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -46,12 +48,17 @@
                 </figure>
 
                 <div class="info-content">
-                    <h1 class="name" title="Chnadrakant Maurya">Chnadrakant
+                    <h1 class="name" title="Chnadrakant Maurya">Chandrakant
                         <br>
                         Maurya
                     </h1>
 
-                    <p class="title">Web Developer</p>
+                    <p class="title">Full Stack Developer</p>
+
+                    <div class="status-badge">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Available for work</span>
+                    </div>
                 </div>
 
                 <button class="info_more-btn" data-sidebar-btn>
@@ -77,7 +84,8 @@
                         <div class="contact-info">
                             <p class="contact-title">Email</p>
 
-                            <a href="mailto:iconicchandu@zohomail.in" class="contact-link">iconicchandu@zohomail.in</a>
+                            <a href="mailto:iconic.chandu777@gmail.com"
+                                class="contact-link">iconic.chandu777@gmail.com</a>
                         </div>
 
                     </li>
@@ -114,7 +122,7 @@
 
                 <div class="separator"></div>
 
-                <ul class="social-list">
+                <!-- <ul class="social-list">
 
                     <li class="social-item">
                         <a href="#" class="social-link">
@@ -134,7 +142,7 @@
                         </a>
                     </li>
 
-                </ul>
+                </ul> -->
 
             </div>
 
@@ -168,10 +176,6 @@
                     </li>
 
                     <li class="navbar-item">
-                        <a href="https://icblog.vercel.app/" target="_blank" class="navbar-link">Blog</a>
-                    </li>
-
-                    <li class="navbar-item">
                         <button class="navbar-link" data-nav-link>Contact</button>
                     </li>
 
@@ -192,27 +196,19 @@
 
                 <section class="about-text">
                     <p>
-                        Hi, I'm
-                        <b>Chandrakant Maurya</b>, a 22-year-old design and development professional based in
-                        <b>Kanpur</b>.
-                        I completed my academic education in 2019, earned my
-                        <b>Bachelor of Computer Applications (BCA)</b>
-                        from
-                        Naraina College of Management, Panki, Kanpur (NCM) in
-                        <b>2022</b>, and went on to complete my
-                        <b>Master of
-                            Computer Applications (MCA)</b>
-                        from Naraina College of Engineering & Technology in
-                        <b>2024</b>.
+                        I'm <b>Chandrakant Maurya</b>, a Full Stack Developer focused on building responsive,
+                        high-performance
+                        web applications using React.js, Next.js, TypeScript, and Firebase. With experience delivering
+                        10+ freelance websites and developing 150+ HTML email templates, I enjoy transforming ideas into
+                        intuitive digital experiences through clean code, thoughtful design, and practical
+                        problem-solving.
                     </p>
 
                     <p>
-                        Currently, I’m working as a
-                        <b>Design Developer</b>
-                        at
-                        <b>Mavericks & Musers Media Pvt. Ltd.</b>, where I
-                        focus on crafting visually engaging and impactful digital experiences.
-                    </p>
+                        Working as a Senior Web Developer at Mavericks & Musers Media Pvt. Ltd., I build modern,
+                        responsive web applications using React.js, Next.js, TypeScript, and Firebase. My role focuses
+                        on developing reusable UI components, integrating APIs, and improving application performance
+                        and user experience.
                     </p>
                 </section>
 
@@ -230,7 +226,7 @@
                         <li class="service-item">
 
                             <div class="service-icon-box">
-                                <img src="/assets/images/web-design.png" alt="design icon" width="40">
+                                <img src="./assets/images/web-design.png" alt="design icon" width="40">
                             </div>
 
                             <div class="service-content-box">
@@ -246,7 +242,7 @@
                         <li class="service-item">
 
                             <div class="service-icon-box">
-                                <img src="/assets/images/coding.png" alt="Web development icon" width="40">
+                                <img src="./assets/images/coding.png" alt="Web development icon" width="40">
                             </div>
 
                             <div class="service-content-box">
@@ -262,7 +258,7 @@
                         <li class="service-item">
 
                             <div class="service-icon-box">
-                                <img src="/assets/images/social.png" alt="mobile app icon" width="40">
+                                <img src="./assets/images/social.png" alt="mobile app icon" width="40">
                             </div>
 
                             <div class="service-content-box">
@@ -278,7 +274,7 @@
                         <li class="service-item">
 
                             <div class="service-icon-box">
-                                <img src="/assets/images/curve.png" alt="camera icon" width="40">
+                                <img src="./assets/images/curve.png" alt="camera icon" width="40">
                             </div>
 
                             <div class="service-content-box">
@@ -294,7 +290,7 @@
                         <li class="service-item">
 
                             <div class="service-icon-box">
-                                <img src="/assets/images/video-editing.png" alt="camera icon" width="40">
+                                <img src="./assets/images/video-editing.png" alt="camera icon" width="40">
                             </div>
 
                             <div class="service-content-box">
@@ -337,7 +333,7 @@
                     <ul class="tech-list">
                         <li class="tech-item service-item">
                             <div class="tech-image service-icon-box">
-                                <img src="/assets/images/html.png" alt="ico" width="40">
+                                <img src="./assets/images/html.png" alt="ico" width="40">
                             </div>
 
                             <div class="tech-info h4 service-item-title">
@@ -347,7 +343,7 @@
 
                         <li class="tech-item service-item">
                             <div class="tech-image service-icon-box">
-                                <img src="/assets/images/css.png" alt="ico" width="40">
+                                <img src="./assets/images/css.png" alt="ico" width="40">
                             </div>
 
                             <div class="tech-info h4 service-item-title">
@@ -357,7 +353,7 @@
 
                         <li class="tech-item service-item">
                             <div class="tech-image service-icon-box">
-                                <img src="/assets/images/js.webp" alt="ico" width="40">
+                                <img src="./assets/images/js.webp" alt="ico" width="40">
                             </div>
 
                             <div class="tech-info h4 service-item-title">
@@ -367,7 +363,7 @@
 
                         <li class="tech-item service-item">
                             <div class="tech-image service-icon-box">
-                                <img src="/assets/images/canva.webp" alt="ico" width="40">
+                                <img src="./assets/images/canva.webp" alt="ico" width="40">
                             </div>
 
                             <div class="tech-info h4 service-item-title">
@@ -377,7 +373,7 @@
 
                         <li class="tech-item service-item">
                             <div class="tech-image service-icon-box">
-                                <img src="/assets/images/ps.png" alt="ico" width="40">
+                                <img src="./assets/images/ps.png" alt="ico" width="40">
                             </div>
 
                             <div class="tech-info h4 service-item-title">
@@ -387,7 +383,7 @@
 
                         <li class="tech-item service-item">
                             <div class="tech-image service-icon-box">
-                                <img src="/assets/images/WordPress.png" alt="ico" width="40">
+                                <img src="./assets/images/WordPress.png" alt="ico" width="40">
                             </div>
 
                             <div class="tech-info h4 service-item-title">
@@ -397,7 +393,7 @@
 
                         <li class="tech-item service-item">
                             <div class="tech-image service-icon-box">
-                                <img src="/assets/images/Tailwind.png" alt="ico" width="40">
+                                <img src="./assets/images/Tailwind.png" alt="ico" width="40">
                             </div>
 
                             <div class="tech-info h4 service-item-title">
@@ -407,7 +403,7 @@
 
                         <li class="tech-item service-item">
                             <div class="tech-image service-icon-box">
-                                <img src="/assets/images/React.png" alt="ico" width="40">
+                                <img src="./assets/images/React.png" alt="ico" width="40">
                             </div>
 
                             <div class="tech-info h4 service-item-title">
@@ -417,7 +413,7 @@
 
                         <li class="tech-item service-item">
                             <div class="tech-image service-icon-box">
-                                <img src="/assets/images/Node.png" alt="ico" width="40">
+                                <img src="./assets/images/Node.png" alt="ico" width="40">
                             </div>
 
                             <div class="tech-info h4 service-item-title">
@@ -434,61 +430,42 @@
 
                 <section class="clients">
 
-                    <h3 class="h3 clients-title">Live Projects</h3>
+                    <div class="clients-header">
+                        <h3 class="h3 clients-title">Live Projects</h3>
+
+                        <div class="clients-header-actions">
+                            <!-- Live Project Tabs: Full Stack & WordPress -->
+                            <div class="live-tabs-nav" role="tablist" aria-label="Live Project Types">
+                                <button class="live-tab-btn active" data-live-tab="fullstack" role="tab"
+                                    aria-selected="true" id="tab-fullstack">
+                                    <span class="tab-icon"><ion-icon name="code-slash-outline"></ion-icon></span>
+                                    <span class="tab-label">Full Stack Projects</span>
+                                    <span class="tab-badge" data-live-count="fullstack">4</span>
+                                </button>
+
+                                <button class="live-tab-btn" data-live-tab="wordpress" role="tab" aria-selected="false"
+                                    id="tab-wordpress">
+                                    <span class="tab-icon"><ion-icon name="logo-wordpress"></ion-icon></span>
+                                    <span class="tab-label">WordPress Projects</span>
+                                    <span class="tab-badge" data-live-count="wordpress">3</span>
+                                </button>
+                            </div>
+
+                            <!-- Carousel Navigation Controls -->
+                            <div class="clients-carousel-controls">
+                                <button class="clients-nav-btn clients-nav-btn-left" aria-label="Scroll left">
+                                    <ion-icon name="chevron-back"></ion-icon>
+                                </button>
+                                <button class="clients-nav-btn clients-nav-btn-right" aria-label="Scroll right">
+                                    <ion-icon name="chevron-forward"></ion-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="clients-wrapper">
-                        <button class="clients-nav-btn clients-nav-btn-left" aria-label="Scroll left">
-                            <ion-icon name="chevron-back"></ion-icon>
-                        </button>
-                        <ul class="clients-list has-scrollbar" data-clients-list>
-
-                        <li class="clients-item">
-                            <a href="#">
-                                <img src="./assets/images/deelzo.webp" alt="client logo">
-                            </a>
-                        </li>
-
-                        <li class="clients-item">
-                            <a href="#">
-                                <img src="./assets/images/resto.webp" alt="client logo">
-                            </a>
-                        </li>
-
-                        <li class="clients-item">
-                            <a href="#">
-                                <img src="./assets/images/indiascope.webp" alt="client logo">
-                            </a>
-                        </li>
-
-                        <li class="clients-item">
-                            <a href="#">
-                                <img src="./assets/images/mavericxlogo.png" alt="client logo">
-                            </a>
-                        </li>
-
-                        <li class="clients-item">
-                            <a href="#">
-                                <img src="./assets/images/cloudpad.png" alt="client logo">
-                            </a>
-                        </li>
-
-                        <li class="clients-item">
-                            <a href="#">
-                                <img src="./assets/images/codesharexmainlogo.png" alt="client logo">
-                            </a>
-                        </li>
-
-                        <li class="clients-item">
-                            <a href="#">
-                                <img src="./assets/images/snapymainlogo.png" alt="client logo">
-                            </a>
-                        </li>
-
-
-                    </ul>
-                        <button class="clients-nav-btn clients-nav-btn-right" aria-label="Scroll right">
-                            <ion-icon name="chevron-forward"></ion-icon>
-                        </button>
+                        <!-- Projects are rendered dynamically from ./assets/js/projects-data.js -->
+                        <ul class="clients-list has-scrollbar" data-clients-list></ul>
                     </div>
 
                 </section>
@@ -640,7 +617,7 @@
 
                             <div class="title-wrapper">
                                 <h5 class="h5">Full Stack Development</h5>
-                                <data value="60">60%</data>
+                                <data value="60">70%</data>
                             </div>
 
                             <div class="skill-progress-bg">
@@ -653,7 +630,7 @@
 
                             <div class="title-wrapper">
                                 <h5 class="h5">Web design</h5>
-                                <data value="80">80%</data>
+                                <data value="80">90%</data>
                             </div>
 
                             <div class="skill-progress-bg">
@@ -678,21 +655,8 @@
                         <li class="skills-item">
 
                             <div class="title-wrapper">
-                                <h5 class="h5">Branding</h5>
-                                <data value="90">90%</data>
-                            </div>
-
-                            <div class="skill-progress-bg">
-                                <div class="skill-progress-fill" style="width: 90%;"></div>
-                            </div>
-
-                        </li>
-
-                        <li class="skills-item">
-
-                            <div class="title-wrapper">
                                 <h5 class="h5">WordPress</h5>
-                                <data value="50">50%</data>
+                                <data value="50">80%</data>
                             </div>
 
                             <div class="skill-progress-bg">
@@ -727,15 +691,11 @@
                         </li>
 
                         <li class="filter-item">
-                            <button data-filter-btn>Web design</button>
+                            <button data-filter-btn>Full Stack</button>
                         </li>
 
                         <li class="filter-item">
-                            <button data-filter-btn>Applications</button>
-                        </li>
-
-                        <li class="filter-item">
-                            <button data-filter-btn>Web development</button>
+                            <button data-filter-btn>WordPress</button>
                         </li>
 
                     </ul>
@@ -759,203 +719,21 @@
                             </li>
 
                             <li class="select-item">
-                                <button data-select-item>Web design</button>
+                                <button data-select-item>Full Stack</button>
                             </li>
 
                             <li class="select-item">
-                                <button data-select-item>Applications</button>
-                            </li>
-
-                            <li class="select-item">
-                                <button data-select-item>Web development</button>
+                                <button data-select-item>WordPress</button>
                             </li>
 
                         </ul>
 
                     </div>
 
-                    <ul class="project-list">
-
-                        <li class="project-item  active" data-filter-item data-category="web development">
-                            <a href="#">
-
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="./assets/images/project-1.jpg" alt="finance" loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">Finance</h3>
-
-                                <p class="project-category">Web development</p>
-
-                            </a>
-                        </li>
-
-                        <li class="project-item  active" data-filter-item data-category="web development">
-                            <a href="#">
-
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="./assets/images/project-2.png" alt="orizon" loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">Orizon</h3>
-
-                                <p class="project-category">Web development</p>
-
-                            </a>
-                        </li>
-
-                        <li class="project-item  active" data-filter-item data-category="web design">
-                            <a href="#">
-
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="./assets/images/project-3.jpg" alt="fundo" loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">Fundo</h3>
-
-                                <p class="project-category">Web design</p>
-
-                            </a>
-                        </li>
-
-                        <li class="project-item  active" data-filter-item data-category="applications">
-                            <a href="#">
-
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="./assets/images/project-4.png" alt="brawlhalla" loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">Brawlhalla</h3>
-
-                                <p class="project-category">Applications</p>
-
-                            </a>
-                        </li>
-
-                        <li class="project-item  active" data-filter-item data-category="web design">
-                            <a href="#">
-
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="./assets/images/project-5.png" alt="dsm." loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">DSM.</h3>
-
-                                <p class="project-category">Web design</p>
-
-                            </a>
-                        </li>
-
-                        <li class="project-item  active" data-filter-item data-category="web design">
-                            <a href="#">
-
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="./assets/images/project-6.png" alt="metaspark" loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">MetaSpark</h3>
-
-                                <p class="project-category">Web design</p>
-
-                            </a>
-                        </li>
-
-                        <li class="project-item  active" data-filter-item data-category="web development">
-                            <a href="#">
-
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="./assets/images/project-7.png" alt="summary" loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">Summary</h3>
-
-                                <p class="project-category">Web development</p>
-
-                            </a>
-                        </li>
-
-                        <li class="project-item  active" data-filter-item data-category="applications">
-                            <a href="#">
-
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="./assets/images/project-8.jpg" alt="task manager" loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">Task Manager</h3>
-
-                                <p class="project-category">Applications</p>
-
-                            </a>
-                        </li>
-
-                        <li class="project-item  active" data-filter-item data-category="web development">
-                            <a href="#">
-
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="./assets/images/project-9.png" alt="arrival" loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">Arrival</h3>
-
-                                <p class="project-category">Web development</p>
-
-                            </a>
-                        </li>
-
-                    </ul>
+                    <!-- Projects are rendered dynamically from ./assets/js/projects-data.js -->
+                    <ul class="project-list" data-portfolio-project-list></ul>
 
                 </section>
-
-            </article>
-
-
-            <!--
-                    - #BLOG
-                  -->
-
-            <article class="blog" data-page="blog">
-
-                <header>
-                    <h2 class="h2 article-title">Blog</h2>
-                </header>
-
-                <iframe src="https://icblog.vercel.app/" frameborder="0" class="blog-iframe"></iframe>
 
             </article>
 
@@ -970,12 +748,41 @@
                     <h2 class="h2 article-title">Contact</h2>
                 </header>
 
-                <section class="mapbox" data-mapbox>
-                    <figure>
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.5651251294!2d-121.58334177520186!3d38.56165006739519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
-                            width="400" height="300" loading="lazy"></iframe>
-                    </figure>
+                <section class="contact-quick-cards">
+
+                    <a href="https://wa.me/917983889813" target="_blank" rel="noopener noreferrer" class="quick-card">
+                        <div class="quick-card-icon whatsapp">
+                            <ion-icon name="logo-whatsapp"></ion-icon>
+                        </div>
+                        <div class="quick-card-content">
+                            <h4 class="h4 quick-card-title">WhatsApp</h4>
+                            <p class="quick-card-text">Quick chat & response</p>
+                            <span class="quick-card-action">Message Now &rarr;</span>
+                        </div>
+                    </a>
+
+                    <a href="mailto:iconic.chandu777@gmail.com" class="quick-card">
+                        <div class="quick-card-icon email">
+                            <ion-icon name="mail-outline"></ion-icon>
+                        </div>
+                        <div class="quick-card-content">
+                            <h4 class="h4 quick-card-title">Email</h4>
+                            <p class="quick-card-text">iconic.chandu777@gmail.com</p>
+                            <span class="quick-card-action">Send Email &rarr;</span>
+                        </div>
+                    </a>
+
+                    <a href="tel:+917983889813" class="quick-card">
+                        <div class="quick-card-icon phone">
+                            <ion-icon name="call-outline"></ion-icon>
+                        </div>
+                        <div class="quick-card-content">
+                            <h4 class="h4 quick-card-title">Phone</h4>
+                            <p class="quick-card-text">+91 79838 89813</p>
+                            <span class="quick-card-action">Call Direct &rarr;</span>
+                        </div>
+                    </a>
+
                 </section>
 
                 <section class="contact-form">
@@ -996,8 +803,8 @@
                             data-form-input></textarea>
 
                         <button class="form-btn" type="submit" disabled data-form-btn>
-                            <ion-icon name="paper-plane"></ion-icon>
-                            <span>Send Message</span>
+                            <ion-icon name="logo-whatsapp"></ion-icon>
+                            <span>Send via WhatsApp</span>
                         </button>
 
                     </form>
@@ -1007,17 +814,20 @@
             </article>
 
         </div>
-</body>
+    </main>
 
-</html>
-</main><!--
-        - custom js link
+    <!--
+        - projects data & custom js link
       -->
-<script src="./assets/js/script.js"></script><!--
+    <script src="./assets/js/projects-data.js?v=1.1"></script>
+    <script src="./assets/js/script.js?v=1.6"></script>
+
+    <!--
         - ionicon link
       -->
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </body>
 
 </html>
