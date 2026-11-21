@@ -1,833 +1,401 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iconic Chandu</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chandrakant Maurya – Full Stack Developer</title>
+<meta name="description" content="Chandrakant Maurya, Senior Web Developer in Kanpur, India. React.js, Next.js, TypeScript, Firebase and WordPress. Available for work.">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F6F1;--card:#fff;--ink:#0E0F14;--muted:#5B5D6B;--line:rgba(14,15,20,.1);--gl:rgba(14,15,20,.07);--a:#3556FF;--b:#FF6A3D;--c:#0FAE80;--d:#FFB81F;--shadow:rgba(40,50,140,.35);color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A0B10;--card:#12141C;--ink:#F4F5FA;--muted:#9A9DB0;--line:rgba(255,255,255,.1);--gl:rgba(255,255,255,.06);--a:#6C8BFF;--b:#FF7A4D;--c:#34D6A3;--d:#FFD25E;--shadow:rgba(0,0,0,.7);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0A0B10;--card:#12141C;--ink:#F4F5FA;--muted:#9A9DB0;--line:rgba(255,255,255,.1);--gl:rgba(255,255,255,.06);--a:#6C8BFF;--b:#FF7A4D;--c:#34D6A3;--d:#FFD25E;--shadow:rgba(0,0,0,.7);color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--bg);color:var(--ink);font:500 1.02rem/1.65 'Plus Jakarta Sans',system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{letter-spacing:-.035em;line-height:1.04;font-weight:800}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--b);outline-offset:3px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px;position:relative}
+.mono,.kk,time,.tag{font-family:'JetBrains Mono',ui-monospace,monospace}
+#prog{position:fixed;top:0;left:0;right:0;height:3px;z-index:60;background:linear-gradient(90deg,var(--a),var(--b),var(--d));transform-origin:0 50%;transform:scaleX(var(--s,0))}
 
-    <!--
-            - favicon
-          -->
-    <link rel="shortcut icon" href="/assets/images/logo.png" type="image/x-icon">
+header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-weight:800;font-size:1.2rem;display:flex;align-items:center;gap:10px}
+.logo i{width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,var(--a),var(--b));display:grid;place-items:center;color:#fff;font:700 .72rem 'JetBrains Mono',monospace;font-style:normal;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.logo:hover i{transform:rotate(360deg)}
+nav{display:flex;align-items:center;gap:2px}
+nav a.l{padding:8px 14px;border-radius:10px;font-size:.93rem;color:var(--muted);transition:background .25s,color .25s}
+nav a.l:hover{background:var(--card);color:var(--ink)}
+.tg{width:38px;height:38px;border-radius:11px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;margin:0 8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 24px;border-radius:14px;font:700 .95rem 'Plus Jakarta Sans',sans-serif;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 26px -12px var(--shadow)}
+.btn.p{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn.a{background:var(--a);color:#fff;border-color:var(--a)}
+header .btn{padding:9px 18px;font-size:.9rem}
+@media(max-width:860px){nav a.l{display:none}}
+.row{display:flex;gap:12px;flex-wrap:wrap}
 
-    <!--
-            - custom css link
-          -->
-    <link rel="stylesheet" href="./assets/css/style.css?v=2.0">
+.hero{position:relative;padding:70px 0 70px;overflow:hidden}
+.gridbg,.gridhi{position:absolute;inset:0;background-size:56px 56px;pointer-events:none}
+.gridbg{background-image:linear-gradient(var(--gl) 1px,transparent 1px),linear-gradient(90deg,var(--gl) 1px,transparent 1px);-webkit-mask-image:radial-gradient(ellipse 85% 75% at 50% 25%,#000 35%,transparent 82%);mask-image:radial-gradient(ellipse 85% 75% at 50% 25%,#000 35%,transparent 82%)}
+.gridhi{background-image:linear-gradient(color-mix(in srgb,var(--a) 70%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--a) 70%,transparent) 1px,transparent 1px);-webkit-mask-image:radial-gradient(240px circle at var(--mx,70%) var(--my,30%),#000,transparent 70%);mask-image:radial-gradient(240px circle at var(--mx,70%) var(--my,30%),#000,transparent 70%)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:30px;align-items:center}
+@media(max-width:940px){.hero .wrap{grid-template-columns:minmax(0,1fr);gap:50px}.hero{padding-top:44px}}
+.open{display:inline-flex;align-items:center;gap:10px;padding:7px 16px 7px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line);font:700 .82rem 'JetBrains Mono',monospace;margin-bottom:24px}
+.open i{width:9px;height:9px;border-radius:50%;background:var(--c);animation:pu 2s infinite}
+@keyframes pu{0%{box-shadow:0 0 0 0 var(--c)}70%,100%{box-shadow:0 0 0 11px transparent}}
+h1{font-size:clamp(2.7rem,6.6vw,5.1rem)}
+h1 em{font-style:normal;position:relative;white-space:nowrap}
+h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.16em;border-radius:99px;background:linear-gradient(90deg,var(--b),var(--d));transform-origin:0 50%;animation:ul 1.1s .9s cubic-bezier(.2,.8,.2,1) both}
+@keyframes ul{from{transform:scaleX(0)}}
+.role{display:inline-flex;align-items:center;gap:10px;margin:22px 0 12px;font:700 1rem 'JetBrains Mono',monospace;color:var(--a)}
+.role b::after{content:"";display:inline-block;width:2px;height:1.1em;background:var(--ink);margin-left:3px;vertical-align:-.15em;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.sum{color:var(--muted);max-width:540px;margin-bottom:28px}
+.facts{display:flex;gap:8px 22px;flex-wrap:wrap;margin-top:26px;color:var(--muted);font-size:.9rem}
+.facts span::before{content:"→ ";color:var(--b);font-weight:800}
+.en{opacity:0;transform:translateY(26px);animation:en .9s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--e)*110ms + .1s)}
+@keyframes en{to{opacity:1;transform:none}}
 
-    <!--
-            - google font link
-          -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+.pw{position:relative;max-width:410px;margin:0 auto;transform-style:preserve-3d;transform:perspective(1100px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .45s cubic-bezier(.2,.8,.2,1);will-change:transform}
+.pc{position:relative;border-radius:30px;background:var(--card);border:1px solid var(--line);box-shadow:0 50px 90px -40px var(--shadow);overflow:hidden;animation:fl 7s ease-in-out infinite}
+@keyframes fl{50%{translate:0 -10px}}
+.pb{height:118px;background:linear-gradient(120deg,var(--a),var(--b));position:relative;overflow:hidden}
+.pb::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.25) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.25) 1px,transparent 1px);background-size:22px 22px}
+.pb span{position:absolute;right:14px;top:14px;display:flex;align-items:center;gap:8px;padding:5px 12px;border-radius:99px;background:rgba(10,11,16,.55);color:#fff;font:700 .72rem 'JetBrains Mono',monospace;backdrop-filter:blur(6px)}
+.pb span i{width:8px;height:8px;border-radius:50%;background:#34D6A3;animation:pu 2s infinite}
+.av{width:104px;height:104px;border-radius:50%;border:5px solid var(--card);margin:-54px 0 0 26px;overflow:hidden;background:var(--d);position:relative}
+.av img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.3);transform-origin:50% 38%}
+.pi{padding:12px 26px 26px}
+.pi h2{font-size:1.65rem;margin-bottom:2px}
+.pi .rl{color:var(--a);font-weight:700;font-size:.95rem}
+.pi dl{margin:18px 0;display:grid;gap:9px;font-size:.9rem}
+.pi dl div{display:flex;justify-content:space-between;gap:14px;padding-bottom:9px;border-bottom:1px dashed var(--line)}
+.pi dt{color:var(--muted)}.pi dd{font-weight:700;text-align:right}
+.ps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+.ps div{text-align:center;padding:12px 4px;border-radius:16px;background:var(--bg);border:1px solid var(--line)}
+.ps b{display:block;font-size:1.35rem;line-height:1.1}
+.ps small{color:var(--muted);font-size:.72rem;font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}
+.tag{font-size:.72rem;font-weight:700;padding:3px 11px;border-radius:99px;border:1px solid var(--line);background:var(--bg)}
+.pa{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pa .btn{padding:11px 10px;font-size:.88rem}
+.pc::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.3) 45%,rgba(108,139,255,.18) 52%,transparent 66%);background-size:260% 100%;background-position:var(--sx,100%) 0;opacity:0;transition:opacity .3s;pointer-events:none}
+.pw:hover .pc::after{opacity:1}
+.sat{position:absolute;padding:10px 16px;border-radius:16px;background:var(--card);border:1px solid var(--line);box-shadow:0 20px 40px -18px var(--shadow);font-weight:800;font-size:.88rem;transform:translateZ(70px);z-index:2;animation:fl2 6s ease-in-out infinite}
+@keyframes fl2{50%{translate:0 12px}}
+.sat small{display:block;color:var(--muted);font-weight:600;font-size:.72rem}
+.s1{left:-36px;top:150px}.s2{right:-30px;bottom:110px;animation-delay:-3s}
+@media(max-width:520px){.s1{left:-6px}.s2{right:-6px}}
+
+.mq{overflow:hidden;white-space:nowrap;border-block:1px solid var(--line);background:var(--card);padding:15px 0}
+.mq div{display:inline-block;animation:mq 36s linear infinite}
+.mq span{font:700 .95rem 'JetBrains Mono',monospace;margin:0 20px;color:var(--muted)}
+.mq span::after{content:"/";margin-left:40px;color:var(--b)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{padding:96px 0}
+.kk{font-size:.8rem;font-weight:700;color:var(--b);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
+h2.t{font-size:clamp(2rem,4.4vw,3.2rem);margin-bottom:12px}
+.lead{color:var(--muted);max-width:540px;margin-bottom:38px}
+.rv{transition:opacity .85s cubic-bezier(.2,.8,.2,1),transform .85s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--d,0)*90ms)}
+.js .rv{opacity:0;transform:translateY(34px)}
+.js .rv.in{opacity:1;transform:none}
+.card{background:var(--card);border:1px solid var(--line);border-radius:26px}
+
+.bn{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px}
+.c7{grid-column:span 7}.c5{grid-column:span 5}.c3{grid-column:span 3}.c4{grid-column:span 4}.c6{grid-column:span 6}.c12{grid-column:span 12}
+@media(max-width:900px){.c7,.c5,.c4,.c6{grid-column:span 12}.c3{grid-column:span 6}}
+.ab{padding:32px}
+.ab h3{font-size:1.6rem;margin-bottom:12px}
+.ab p{color:var(--muted);margin-bottom:12px}
+.ab p b{color:var(--ink)}
+.code{background:#0E1018;color:#C9CEE8;border-radius:26px;padding:0;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
+.code .bar{display:flex;gap:7px;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.08)}
+.code .bar i{width:11px;height:11px;border-radius:50%;background:#FF5F57}.code .bar i:nth-child(2){background:#FEBC2E}.code .bar i:nth-child(3){background:#28C840}
+.code pre{padding:20px 22px;font:500 .84rem/1.8 'JetBrains Mono',monospace;overflow-x:auto}
+.k1{color:#C792EA}.k2{color:#82AAFF}.k3{color:#C3E88D}.k4{color:#FFCB6B}.k5{color:#F78C6C}
+.cur{display:inline-block;width:8px;height:1em;background:#fff;vertical-align:-.15em;animation:bl 1s steps(1) infinite}
+.st{padding:26px;position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.st:hover{transform:translateY(-6px) rotate(-.8deg)}
+.st b{font-size:3rem;font-weight:800;display:block;line-height:1;letter-spacing:-.04em}
+.st span{color:var(--muted);font-weight:700;font-size:.92rem}
+.st::after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;right:-24px;top:-24px;background:var(--g);opacity:.18}
+
+.ex{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px}
+.exl{position:sticky;top:100px;align-self:start}
+@media(max-width:900px){.ex{grid-template-columns:minmax(0,1fr);gap:10px}.exl{position:static}}
+.tlv{position:relative;padding-left:36px;display:grid;gap:18px}
+.tlv::before,.tlv::after{content:"";position:absolute;left:8px;top:8px;bottom:8px;width:3px;border-radius:3px;background:var(--line)}
+.tlv::after{background:linear-gradient(var(--a),var(--b));transform-origin:50% 0;transform:scaleY(var(--pg,0))}
+.ti{padding:24px 26px;position:relative;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.ti:hover{transform:translateX(6px);box-shadow:0 24px 40px -26px var(--shadow)}
+.ti::before{content:"";position:absolute;left:-35px;top:30px;width:15px;height:15px;border-radius:50%;background:var(--bg);border:3px solid var(--a)}
+.ti.now::before{background:var(--c);border-color:var(--c);animation:pu 2s infinite}
+.ti time{font-size:.8rem;font-weight:700;color:var(--b)}
+.ti h3{font-size:1.25rem;margin:4px 0 4px}
+.ti p,.ti li{color:var(--muted);font-size:.95rem}
+.ti ul{padding-left:18px;margin:8px 0 4px}
+
+.sk{padding:26px}
+.sk h3{font-size:1.1rem;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.sk h3 i{font-style:normal;width:30px;height:30px;border-radius:10px;display:grid;place-items:center;color:#fff;font-size:.9rem;background:var(--g)}
+.tw{display:flex;flex-wrap:wrap;gap:10px}
+.tool{display:inline-flex;align-items:center;gap:10px;padding:6px 15px 6px 6px;border-radius:14px;border:1px solid var(--line);background:var(--bg);font-weight:700;font-size:.92rem;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s}
+.tool:hover{transform:translateY(-4px) rotate(-2deg);border-color:var(--a)}
+.tool b{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font:700 .78rem 'JetBrains Mono',monospace;color:#0E0F14}
+.bars{padding:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.bt{display:flex;justify-content:space-between;font-weight:800;margin-bottom:8px}
+.bar2{height:12px;border-radius:99px;background:var(--bg);border:1px solid var(--line);overflow:hidden}
+.bar2 i{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,var(--a),var(--b));transition:width 1.4s cubic-bezier(.2,.8,.2,1) .2s}
+.in .bar2 i{width:var(--w)}
+
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:8px}
+.fb{padding:9px 18px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:700 .9rem 'Plus Jakarta Sans',sans-serif;cursor:pointer;transition:transform .25s,background .25s,color .25s}
+.fb:hover{transform:translateY(-2px)}
+.fb[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.filters input{margin-left:auto;padding:10px 16px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;min-width:230px}
+.shown{color:var(--muted);font-size:.88rem;margin:6px 0 24px}
+.pg{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
+.pg li:not([hidden]){animation:pop .55s cubic-bezier(.2,.8,.2,1)}
+@keyframes pop{from{opacity:0;scale:.93}}
+.pj{display:block;border-radius:22px;overflow:hidden;background:var(--card);border:1px solid var(--line);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .3s}
+.pj:hover{transform:translateY(-8px);box-shadow:0 30px 50px -28px var(--shadow);border-color:var(--a)}
+.br{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line)}
+.br i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.br span{margin-left:8px;flex:1;font:500 .72rem 'JetBrains Mono',monospace;color:var(--muted);background:var(--bg);border-radius:99px;padding:2px 12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pv{height:128px;display:grid;place-items:center;position:relative;background:linear-gradient(135deg,var(--p1),var(--p2));overflow:hidden}
+.pv::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.28) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.28) 1px,transparent 1px);background-size:24px 24px}
+.pv b{position:relative;width:62px;height:62px;border-radius:19px;background:#fff;color:#0E0F14;display:grid;place-items:center;font-size:1.3rem;box-shadow:0 14px 26px -10px rgba(0,0,0,.4);transform:rotate(-6deg);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.pj:hover .pv b{transform:rotate(5deg) scale(1.12)}
+.pv b{overflow:hidden}.pv b img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:9px}.pv b.has span{opacity:0}
+.pm{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:16px 18px}
+.pm h3{font-size:1.08rem}
+.pm small{color:var(--muted);font:700 .72rem 'JetBrains Mono',monospace}
+.ar{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;flex:none;transition:background .3s,color .3s,rotate .4s}
+.pj:hover .ar{background:var(--a);color:#fff;rotate:45deg;border-color:var(--a)}
+
+.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.sv{padding:24px 22px;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s}
+.sv:hover{transform:translateY(-6px);border-color:var(--b)}
+.sv svg{width:32px;height:32px;stroke:var(--b);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-bottom:14px}
+.sv h3{font-size:1.02rem;margin-bottom:6px}
+.sv p{color:var(--muted);font-size:.9rem}
+.edu{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.ed{padding:24px}
+.ed time{color:var(--b);font-weight:700;font-size:.8rem}
+.ed h3{font-size:1.05rem;margin:4px 0}
+.ed p{color:var(--muted);font-size:.92rem}
+
+.cta{position:relative;overflow:hidden;border-radius:34px;padding:64px 44px;background:#0B0C12;color:#fff;margin-bottom:22px}
+.cta .gridbg{background-image:linear-gradient(rgba(255,255,255,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.09) 1px,transparent 1px);-webkit-mask-image:radial-gradient(ellipse 70% 90% at 80% 20%,#000,transparent 80%);mask-image:radial-gradient(ellipse 70% 90% at 80% 20%,#000,transparent 80%)}
+.cta::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;right:-120px;top:-160px;background:radial-gradient(circle,var(--a),transparent 66%);opacity:.7;animation:dr 12s ease-in-out infinite alternate}
+@keyframes dr{to{transform:translate(-40px,40px) scale(1.15)}}
+.cta>*:not(.gridbg){position:relative}
+.cta h2{font-size:clamp(2rem,4.4vw,3.2rem);max-width:640px}
+.cta p{max-width:520px;margin:14px 0 26px;color:#B8BBD0}
+.cta .btn{border:0}
+.cta .btn.w{background:#fff;color:#0E0F14}
+.cta .btn.o{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2)}
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-bottom:22px}
+.cc{display:block;padding:22px;transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s}
+.cc:hover{transform:translateY(-6px);border-color:var(--c)}
+.cc small{color:var(--muted);font:700 .75rem 'JetBrains Mono',monospace;text-transform:uppercase}
+.cc b{display:block;font-size:1.02rem;margin:4px 0 8px;word-break:break-word}
+.cc span{color:var(--a);font-weight:800;font-size:.9rem}
+form{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:26px}
+form .full{grid-column:1/-1}
+@media(max-width:640px){form{grid-template-columns:1fr}.cta{padding:42px 22px}.filters input{margin-left:0;width:100%}.wrap{padding:0 16px}.ab{padding:24px}}
+input,textarea{width:100%;padding:13px 16px;border:1px solid var(--line);border-radius:14px;font:inherit;background:var(--bg);color:var(--ink)}
+textarea{min-height:110px;resize:vertical}
+footer{padding:32px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.js .rv,.en{opacity:1;transform:none}}
+@media print{header,#prog,.gridbg,.gridhi,.mq,form,.cta,footer,.sat,.btn,.pa{display:none!important}body{background:#fff;color:#000}.js .rv,.en{opacity:1!important;transform:none!important}.pc,.pw{animation:none;transform:none;box-shadow:none}section{padding:20px 0}.hero{padding:16px 0}}
+</style>
 </head>
-
 <body>
-
-    <!--
-            - #MAIN
-          -->
-
-    <main>
-
-        <!--
-                  - #SIDEBAR
-                -->
-
-        <aside class="sidebar" data-sidebar>
-
-            <div class="sidebar-info">
-
-                <figure class="avatar-box">
-                    <img src="./assets/images/my-avatar.png" alt="Chnadrakant Maurya" width="80">
-                </figure>
-
-                <div class="info-content">
-                    <h1 class="name" title="Chnadrakant Maurya">Chandrakant
-                        <br>
-                        Maurya
-                    </h1>
-
-                    <p class="title">Full Stack Developer</p>
-
-                    <div class="status-badge">
-                        <span class="status-dot"></span>
-                        <span class="status-text">Available for work</span>
-                    </div>
-                </div>
-
-                <button class="info_more-btn" data-sidebar-btn>
-                    <span>Show Contacts</span>
-
-                    <ion-icon name="chevron-down"></ion-icon>
-                </button>
-
-            </div>
-
-            <div class="sidebar-info_more">
-
-                <div class="separator"></div>
-
-                <ul class="contacts-list">
-
-                    <li class="contact-item">
-
-                        <div class="icon-box">
-                            <ion-icon name="mail-outline"></ion-icon>
-                        </div>
-
-                        <div class="contact-info">
-                            <p class="contact-title">Email</p>
-
-                            <a href="mailto:iconic.chandu777@gmail.com"
-                                class="contact-link">iconic.chandu777@gmail.com</a>
-                        </div>
-
-                    </li>
-
-                    <li class="contact-item">
-
-                        <div class="icon-box">
-                            <ion-icon name="phone-portrait-outline"></ion-icon>
-                        </div>
-
-                        <div class="contact-info">
-                            <p class="contact-title">Phone</p>
-
-                            <a href="tel:+917983889813" class="contact-link">+917983889813</a>
-                        </div>
-
-                    </li>
-
-                    <li class="contact-item">
-
-                        <div class="icon-box">
-                            <ion-icon name="location-outline"></ion-icon>
-                        </div>
-
-                        <div class="contact-info">
-                            <p class="contact-title">Location</p>
-
-                            <address>Kanpur, India</address>
-                        </div>
-
-                    </li>
-
-                </ul>
-
-                <div class="separator"></div>
-
-                <!-- <ul class="social-list">
-
-                    <li class="social-item">
-                        <a href="#" class="social-link">
-                            <ion-icon name="logo-facebook"></ion-icon>
-                        </a>
-                    </li>
-
-                    <li class="social-item">
-                        <a href="#" class="social-link">
-                            <ion-icon name="logo-twitter"></ion-icon>
-                        </a>
-                    </li>
-
-                    <li class="social-item">
-                        <a href="#" class="social-link">
-                            <ion-icon name="logo-instagram"></ion-icon>
-                        </a>
-                    </li>
-
-                </ul> -->
-
-            </div>
-
-        </aside>
-
-
-        <!--
-                  - #main-content
-                -->
-
-        <div class="main-content">
-
-            <!--
-                        - #NAVBAR
-                      -->
-
-            <nav class="navbar">
-
-                <ul class="navbar-list">
-
-                    <li class="navbar-item">
-                        <button class="navbar-link  active" data-nav-link>About</button>
-                    </li>
-
-                    <li class="navbar-item">
-                        <button class="navbar-link" data-nav-link>Resume</button>
-                    </li>
-
-                    <li class="navbar-item">
-                        <button class="navbar-link" data-nav-link>Portfolio</button>
-                    </li>
-
-                    <li class="navbar-item">
-                        <button class="navbar-link" data-nav-link>Contact</button>
-                    </li>
-
-                </ul>
-
-            </nav>
-
-
-            <!--
-                        - #ABOUT
-                      -->
-
-            <article class="about  active" data-page="about">
-
-                <header>
-                    <h2 class="h2 article-title">About me</h2>
-                </header>
-
-                <section class="about-text">
-                    <p>
-                        I'm <b>Chandrakant Maurya</b>, a Full Stack Developer focused on building responsive,
-                        high-performance
-                        web applications using React.js, Next.js, TypeScript, and Firebase. With experience delivering
-                        10+ freelance websites and developing 150+ HTML email templates, I enjoy transforming ideas into
-                        intuitive digital experiences through clean code, thoughtful design, and practical
-                        problem-solving.
-                    </p>
-
-                    <p>
-                        Working as a Senior Web Developer at Mavericks & Musers Media Pvt. Ltd., I build modern,
-                        responsive web applications using React.js, Next.js, TypeScript, and Firebase. My role focuses
-                        on developing reusable UI components, integrating APIs, and improving application performance
-                        and user experience.
-                    </p>
-                </section>
-
-
-                <!--
-                          - service
-                        -->
-
-                <section class="service">
-
-                    <h3 class="h3 service-title">What i'm doing</h3>
-
-                    <ul class="service-list">
-
-                        <li class="service-item">
-
-                            <div class="service-icon-box">
-                                <img src="./assets/images/web-design.png" alt="design icon" width="40">
-                            </div>
-
-                            <div class="service-content-box">
-                                <h4 class="h4 service-item-title">Web design</h4>
-
-                                <p class="service-item-text">
-                                    The most modern and high-quality design made at a professional level.
-                                </p>
-                            </div>
-
-                        </li>
-
-                        <li class="service-item">
-
-                            <div class="service-icon-box">
-                                <img src="./assets/images/coding.png" alt="Web development icon" width="40">
-                            </div>
-
-                            <div class="service-content-box">
-                                <h4 class="h4 service-item-title">Web development</h4>
-
-                                <p class="service-item-text">
-                                    High-quality development of sites at the professional level.
-                                </p>
-                            </div>
-
-                        </li>
-
-                        <li class="service-item">
-
-                            <div class="service-icon-box">
-                                <img src="./assets/images/social.png" alt="mobile app icon" width="40">
-                            </div>
-
-                            <div class="service-content-box">
-                                <h4 class="h4 service-item-title">WordPress development</h4>
-
-                                <p class="service-item-text">
-                                    Professional and Moedrn website development.
-                                </p>
-                            </div>
-
-                        </li>
-
-                        <li class="service-item">
-
-                            <div class="service-icon-box">
-                                <img src="./assets/images/curve.png" alt="camera icon" width="40">
-                            </div>
-
-                            <div class="service-content-box">
-                                <h4 class="h4 service-item-title">Graphic Design</h4>
-
-                                <p class="service-item-text">
-                                    I make high-quality Logo, Ad, Creative and Other things.
-                                </p>
-                            </div>
-
-                        </li>
-
-                        <li class="service-item">
-
-                            <div class="service-icon-box">
-                                <img src="./assets/images/video-editing.png" alt="camera icon" width="40">
-                            </div>
-
-                            <div class="service-content-box">
-                                <h4 class="h4 service-item-title">Photos/Videos Editing</h4>
-
-                                <p class="service-item-text">
-                                    I can edit photos and video according to your requirment.
-                                </p>
-                            </div>
-
-                        </li>
-
-                    </ul>
-
-                </section>
-
-                <!--
-                          - testimonials modal
-                        -->
-
-                <div class="modal-container" data-modal-container>
-
-                    <div class="overlay" data-overlay></div>
-
-                    <section class="testimonials-modal">
-
-                        <button class="modal-close-btn" data-modal-close-btn>
-                            <ion-icon name="close-outline"></ion-icon>
-                        </button>
-                    </section>
-
-                </div>
-
-
-                <!-- Technology Section -->
-
-                <section class="tech service">
-                    <h3 class="h3 service-title">My Design & Deployment Expertise</h3>
-
-                    <ul class="tech-list">
-                        <li class="tech-item service-item">
-                            <div class="tech-image service-icon-box">
-                                <img src="./assets/images/html.png" alt="ico" width="40">
-                            </div>
-
-                            <div class="tech-info h4 service-item-title">
-                                HTML
-                            </div>
-                        </li>
-
-                        <li class="tech-item service-item">
-                            <div class="tech-image service-icon-box">
-                                <img src="./assets/images/css.png" alt="ico" width="40">
-                            </div>
-
-                            <div class="tech-info h4 service-item-title">
-                                CSS
-                            </div>
-                        </li>
-
-                        <li class="tech-item service-item">
-                            <div class="tech-image service-icon-box">
-                                <img src="./assets/images/js.webp" alt="ico" width="40">
-                            </div>
-
-                            <div class="tech-info h4 service-item-title">
-                                JavaScript
-                            </div>
-                        </li>
-
-                        <li class="tech-item service-item">
-                            <div class="tech-image service-icon-box">
-                                <img src="./assets/images/canva.webp" alt="ico" width="40">
-                            </div>
-
-                            <div class="tech-info h4 service-item-title">
-                                Canva
-                            </div>
-                        </li>
-
-                        <li class="tech-item service-item">
-                            <div class="tech-image service-icon-box">
-                                <img src="./assets/images/ps.png" alt="ico" width="40">
-                            </div>
-
-                            <div class="tech-info h4 service-item-title">
-                                PhotoShop
-                            </div>
-                        </li>
-
-                        <li class="tech-item service-item">
-                            <div class="tech-image service-icon-box">
-                                <img src="./assets/images/WordPress.png" alt="ico" width="40">
-                            </div>
-
-                            <div class="tech-info h4 service-item-title">
-                                WordPress
-                            </div>
-                        </li>
-
-                        <li class="tech-item service-item">
-                            <div class="tech-image service-icon-box">
-                                <img src="./assets/images/Tailwind.png" alt="ico" width="40">
-                            </div>
-
-                            <div class="tech-info h4 service-item-title">
-                                Tailwind
-                            </div>
-                        </li>
-
-                        <li class="tech-item service-item">
-                            <div class="tech-image service-icon-box">
-                                <img src="./assets/images/React.png" alt="ico" width="40">
-                            </div>
-
-                            <div class="tech-info h4 service-item-title">
-                                React JS
-                            </div>
-                        </li>
-
-                        <li class="tech-item service-item">
-                            <div class="tech-image service-icon-box">
-                                <img src="./assets/images/Node.png" alt="ico" width="40">
-                            </div>
-
-                            <div class="tech-info h4 service-item-title">
-                                Node JS
-                            </div>
-                        </li>
-
-                    </ul>
-                </section>
-
-                <!--
-                          - clients
-                        -->
-
-                <section class="clients">
-
-                    <div class="clients-header">
-                        <h3 class="h3 clients-title">Live Projects</h3>
-
-                        <div class="clients-header-actions">
-                            <!-- Live Project Tabs: Full Stack & WordPress -->
-                            <div class="live-tabs-nav" role="tablist" aria-label="Live Project Types">
-                                <button class="live-tab-btn active" data-live-tab="fullstack" role="tab"
-                                    aria-selected="true" id="tab-fullstack">
-                                    <span class="tab-icon"><ion-icon name="code-slash-outline"></ion-icon></span>
-                                    <span class="tab-label">Full Stack Projects</span>
-                                    <span class="tab-badge" data-live-count="fullstack">4</span>
-                                </button>
-
-                                <button class="live-tab-btn" data-live-tab="wordpress" role="tab" aria-selected="false"
-                                    id="tab-wordpress">
-                                    <span class="tab-icon"><ion-icon name="logo-wordpress"></ion-icon></span>
-                                    <span class="tab-label">WordPress Projects</span>
-                                    <span class="tab-badge" data-live-count="wordpress">3</span>
-                                </button>
-                            </div>
-
-                            <!-- Carousel Navigation Controls -->
-                            <div class="clients-carousel-controls">
-                                <button class="clients-nav-btn clients-nav-btn-left" aria-label="Scroll left">
-                                    <ion-icon name="chevron-back"></ion-icon>
-                                </button>
-                                <button class="clients-nav-btn clients-nav-btn-right" aria-label="Scroll right">
-                                    <ion-icon name="chevron-forward"></ion-icon>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="clients-wrapper">
-                        <!-- Projects are rendered dynamically from ./assets/js/projects-data.js -->
-                        <ul class="clients-list has-scrollbar" data-clients-list></ul>
-                    </div>
-
-                </section>
-
-            </article>
-
-
-            <!--
-                    - #RESUME
-                  -->
-
-            <article class="resume" data-page="resume">
-
-                <header>
-                    <h2 class="h2 article-title">Resume</h2>
-                </header>
-
-                <section class="timeline">
-
-                    <div class="title-wrapper">
-                        <div class="icon-box">
-                            <ion-icon name="book-outline"></ion-icon>
-                        </div>
-
-                        <h3 class="h3">Education</h3>
-                    </div>
-
-                    <ol class="timeline-list">
-
-                        <li class="timeline-item">
-
-                            <h4 class="h4 timeline-item-title">Master of Computer Applications</h4>
-
-                            <span>2022 — 2024</span>
-
-                            <p class="timeline-text">
-                                From Naraina College of Engineering & Technology Ratanpur Kanpur
-                            </p>
-
-                        </li>
-
-                        <li class="timeline-item">
-
-                            <h4 class="h4 timeline-item-title">Bachelor of Computer Applications</h4>
-
-                            <span>2019 — 2022</span>
-
-                            <p class="timeline-text">
-                                From Naraina College of Management Panki Kanpur
-                            </p>
-
-                        </li>
-
-                        <li class="timeline-item">
-
-                            <h4 class="h4 timeline-item-title">Academic Qualification</h4>
-
-                            <span>Completed In 2019</span>
-
-                            <p class="timeline-text">
-                                From SVSSIC Madhuban Mau
-                            </p>
-
-                        </li>
-
-                    </ol>
-
-                </section>
-
-                <section class="timeline">
-
-                    <div class="title-wrapper">
-                        <div class="icon-box">
-                            <ion-icon name="book-outline"></ion-icon>
-                        </div>
-
-                        <h3 class="h3">Experience</h3>
-                    </div>
-
-                    <ol class="timeline-list">
-
-                        <li class="timeline-item">
-
-                            <h4 class="h4 timeline-item-title">Senior Web Developer</h4>
-
-                            <span>Jan 2026 — Present</span>
-
-                            <p class="timeline-text">
-                                In January 2026, I was promoted to
-                                <b>Senior Web Developer</b>
-                                at Mavericks & Mushers Media Pvt. Ltd.
-                            </p>
-
-                        </li>
-
-                        <li class="timeline-item">
-
-                            <h4 class="h4 timeline-item-title">Design Developer</h4>
-
-                            <span>Dec 2023 — Jan 2026</span>
-
-                            <p class="timeline-text">
-                                From Dec 2023 to Jan 2026, I worked as a
-                                <b>Design Developer</b>
-                                at Mavericks & Mushers Media Pvt. Ltd.
-                            </p>
-
-                        </li>
-
-
-                        <li class="timeline-item">
-
-                            <h4 class="h4 timeline-item-title">HTML Developer Intern</h4>
-
-                            <span>Sept 2023 — Dec 2023</span>
-
-                            <p class="timeline-text">
-                                In September 2023, I worked as an
-                                <b>HTML Developer Intern</b>
-                                at Mavericks & Mushers Media Pvt. Ltd.
-                            </p>
-
-                        </li>
-
-                        <li class="timeline-item">
-
-                            <h4 class="h4 timeline-item-title">Freelancing</h4>
-
-                            <span>April 2023 — September 2023</span>
-
-                            <p class="timeline-text">
-                                From April to September 2023, I worked as a
-                                <b>freelance web developer</b>
-                                for various clients.
-                            </p>
-
-                        </li>
-                    </ol>
-
-                </section>
-
-                <section class="skill">
-
-                    <h3 class="h3 skills-title">My skills</h3>
-
-                    <ul class="skills-list content-card">
-
-                        <li class="skills-item">
-
-                            <div class="title-wrapper">
-                                <h5 class="h5">Full Stack Development</h5>
-                                <data value="60">70%</data>
-                            </div>
-
-                            <div class="skill-progress-bg">
-                                <div class="skill-progress-fill" style="width: 60%;"></div>
-                            </div>
-
-                        </li>
-
-                        <li class="skills-item">
-
-                            <div class="title-wrapper">
-                                <h5 class="h5">Web design</h5>
-                                <data value="80">90%</data>
-                            </div>
-
-                            <div class="skill-progress-bg">
-                                <div class="skill-progress-fill" style="width: 80%;"></div>
-                            </div>
-
-                        </li>
-
-                        <li class="skills-item">
-
-                            <div class="title-wrapper">
-                                <h5 class="h5">Graphic design</h5>
-                                <data value="70">70%</data>
-                            </div>
-
-                            <div class="skill-progress-bg">
-                                <div class="skill-progress-fill" style="width: 70%;"></div>
-                            </div>
-
-                        </li>
-
-                        <li class="skills-item">
-
-                            <div class="title-wrapper">
-                                <h5 class="h5">WordPress</h5>
-                                <data value="50">80%</data>
-                            </div>
-
-                            <div class="skill-progress-bg">
-                                <div class="skill-progress-fill" style="width: 50%;"></div>
-                            </div>
-
-                        </li>
-
-                    </ul>
-
-                </section>
-
-            </article>
-
-
-            <!--
-                    - #PORTFOLIO
-                  -->
-
-            <article class="portfolio" data-page="portfolio">
-
-                <header>
-                    <h2 class="h2 article-title">Portfolio</h2>
-                </header>
-
-                <section class="projects">
-
-                    <ul class="filter-list">
-
-                        <li class="filter-item">
-                            <button class="active" data-filter-btn>All</button>
-                        </li>
-
-                        <li class="filter-item">
-                            <button data-filter-btn>Full Stack</button>
-                        </li>
-
-                        <li class="filter-item">
-                            <button data-filter-btn>WordPress</button>
-                        </li>
-
-                    </ul>
-
-                    <div class="filter-select-box">
-
-                        <button class="filter-select" data-select>
-
-                            <div class="select-value" data-selecct-value>Select category</div>
-
-                            <div class="select-icon">
-                                <ion-icon name="chevron-down"></ion-icon>
-                            </div>
-
-                        </button>
-
-                        <ul class="select-list">
-
-                            <li class="select-item">
-                                <button data-select-item>All</button>
-                            </li>
-
-                            <li class="select-item">
-                                <button data-select-item>Full Stack</button>
-                            </li>
-
-                            <li class="select-item">
-                                <button data-select-item>WordPress</button>
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-                    <!-- Projects are rendered dynamically from ./assets/js/projects-data.js -->
-                    <ul class="project-list" data-portfolio-project-list></ul>
-
-                </section>
-
-            </article>
-
-
-            <!--
-                    - #CONTACT
-                  -->
-
-            <article class="contact" data-page="contact">
-
-                <header>
-                    <h2 class="h2 article-title">Contact</h2>
-                </header>
-
-                <section class="contact-quick-cards">
-
-                    <a href="https://wa.me/917983889813" target="_blank" rel="noopener noreferrer" class="quick-card">
-                        <div class="quick-card-icon whatsapp">
-                            <ion-icon name="logo-whatsapp"></ion-icon>
-                        </div>
-                        <div class="quick-card-content">
-                            <h4 class="h4 quick-card-title">WhatsApp</h4>
-                            <p class="quick-card-text">Quick chat & response</p>
-                            <span class="quick-card-action">Message Now &rarr;</span>
-                        </div>
-                    </a>
-
-                    <a href="mailto:iconic.chandu777@gmail.com" class="quick-card">
-                        <div class="quick-card-icon email">
-                            <ion-icon name="mail-outline"></ion-icon>
-                        </div>
-                        <div class="quick-card-content">
-                            <h4 class="h4 quick-card-title">Email</h4>
-                            <p class="quick-card-text">iconic.chandu777@gmail.com</p>
-                            <span class="quick-card-action">Send Email &rarr;</span>
-                        </div>
-                    </a>
-
-                    <a href="tel:+917983889813" class="quick-card">
-                        <div class="quick-card-icon phone">
-                            <ion-icon name="call-outline"></ion-icon>
-                        </div>
-                        <div class="quick-card-content">
-                            <h4 class="h4 quick-card-title">Phone</h4>
-                            <p class="quick-card-text">+91 79838 89813</p>
-                            <span class="quick-card-action">Call Direct &rarr;</span>
-                        </div>
-                    </a>
-
-                </section>
-
-                <section class="contact-form">
-
-                    <h3 class="h3 form-title">Contact Form</h3>
-
-                    <form action="#" class="form" data-form>
-
-                        <div class="input-wrapper">
-                            <input type="text" name="fullname" class="form-input" placeholder="Full name" required
-                                data-form-input>
-
-                            <input type="email" name="email" class="form-input" placeholder="Email address" required
-                                data-form-input>
-                        </div>
-
-                        <textarea name="message" class="form-input" placeholder="Your Message" required
-                            data-form-input></textarea>
-
-                        <button class="form-btn" type="submit" disabled data-form-btn>
-                            <ion-icon name="logo-whatsapp"></ion-icon>
-                            <span>Send via WhatsApp</span>
-                        </button>
-
-                    </form>
-
-                </section>
-
-            </article>
-
-        </div>
-    </main>
-
-    <!--
-        - projects data & custom js link
-      -->
-    <script src="./assets/js/projects-data.js?v=1.1"></script>
-    <script src="./assets/js/script.js?v=1.6"></script>
-
-    <!--
-        - ionicon link
-      -->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+<div id="prog" aria-hidden="true"></div>
+<header><div class="wrap">
+  <a class="logo" href="#top"><i>CM</i>Chandrakant</a>
+  <nav><a class="l" href="#about">About</a><a class="l" href="#experience">Experience</a><a class="l" href="#skills">Skills</a><a class="l" href="#projects">Projects</a><button class="tg" id="tg" aria-label="Switch light or dark theme">◐</button><a class="btn p" href="#contact">Hire me</a></nav>
+</div></header>
+
+<main id="top">
+<div class="hero" id="hero"><div class="gridbg" aria-hidden="true"></div><div class="gridhi" id="gh" aria-hidden="true"></div>
+<div class="wrap">
+  <div>
+    <span class="open en" style="--e:0"><i></i>Available for work</span>
+    <h1 class="en" style="--e:1">Hi, I’m <em>Chandrakant</em>. I build fast, beautiful web apps.</h1>
+    <div class="role en" style="--e:2"><span>›</span><b id="role"></b></div>
+    <p class="sum en" style="--e:3">Chandrakant Maurya, Senior Web Developer from Kanpur. I turn ideas into intuitive digital experiences with clean code and thoughtful design. 10+ freelance websites and 150+ email templates delivered.</p>
+    <div class="row en" style="--e:4"><a class="btn a" href="mailto:iconic.chandu777@gmail.com">Email me</a><button class="btn" id="pdf" type="button">Save resume as PDF</button><a class="btn" href="https://wa.me/917983889813" target="_blank" rel="noopener">WhatsApp</a></div>
+    <div class="facts en" style="--e:5"><span>Kanpur, India</span><span>3+ years experience</span><span>MCA graduate</span></div>
+  </div>
+  <div class="en" style="--e:3"><div class="pw" id="pw">
+    <div class="pc">
+      <div class="pb"><span><i></i>OPEN TO WORK</span></div>
+      <div class="av"><img src="assets/images/profile.jpg" alt="Chandrakant Maurya" width="104" height="104"></div>
+      <div class="pi">
+        <h2>Chandrakant Maurya</h2><div class="rl">Full Stack Developer</div>
+        <dl><div><dt>Current role</dt><dd>Senior Web Developer</dd></div><div><dt>Company</dt><dd>Mavericks &amp; Mushers Media</dd></div><div><dt>Location</dt><dd>Kanpur, India</dd></div></dl>
+        <div class="ps"><div><b data-n="3" data-s="+">0</b><small>YEARS</small></div><div><b data-n="17" data-proj>0</b><small>PROJECTS</small></div><div><b data-n="150" data-s="+">0</b><small>TEMPLATES</small></div></div>
+        <div class="chips"><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Firebase</span><span class="tag">WordPress</span></div>
+        <div class="pa"><a class="btn p" href="https://wa.me/917983889813" target="_blank" rel="noopener">WhatsApp</a><a class="btn" href="mailto:iconic.chandu777@gmail.com">Email</a></div>
+      </div>
+    </div>
+    <div class="sat s1"><small>Live projects</small><span id="psat">17 shipped</span></div><div class="sat s2"><small>Core stack</small>React · Next.js</div>
+  </div></div>
+</div></div>
+<div class="mq" aria-hidden="true"><div id="mq"></div></div>
+
+<section id="about"><div class="wrap">
+  <p class="kk rv">01 / About</p><h2 class="t rv">Clean code, thoughtful design</h2><p class="lead rv">A quick look at who I am and what I’ve done so far.</p>
+  <div class="bn">
+    <div class="card ab c7 rv"><h3>I’m Chandrakant Maurya</h3><p>A <b>Full Stack Developer</b> focused on building responsive, high-performance web applications using <b>React.js, Next.js, TypeScript and Firebase</b>. I enjoy turning ideas into intuitive digital experiences through clean code, thoughtful design and practical problem-solving.</p><p>At <b>Mavericks &amp; Mushers Media Pvt. Ltd.</b> I build modern web apps, reusable UI components and API integrations, and I work on performance and user experience.</p></div>
+    <div class="code c5 rv" style="--d:1"><div class="bar"><i></i><i></i><i></i></div><pre><span class="k1">const</span> <span class="k2">chandrakant</span> = {
+  role: <span class="k3">"Senior Web Developer"</span>,
+  stack: [<span class="k3">"React"</span>, <span class="k3">"Next.js"</span>,
+          <span class="k3">"TypeScript"</span>, <span class="k3">"Firebase"</span>],
+  location: <span class="k3">"Kanpur, India"</span>,
+  experience: <span class="k5">"3+ years"</span>,
+  openToWork: <span class="k4">true</span>
+};<span class="cur"></span></pre></div>
+    <div class="card st c3 rv" style="--g:var(--a)"><b data-n="3" data-s="+">0</b><span>years in web development</span></div>
+    <div class="card st c3 rv" style="--g:var(--b);--d:1"><b data-n="10" data-s="+">0</b><span>freelance websites</span></div>
+    <div class="card st c3 rv" style="--g:var(--c);--d:2"><b data-n="150" data-s="+">0</b><span>HTML email templates</span></div>
+    <div class="card st c3 rv" style="--g:var(--d);--d:3"><b data-n="17" data-proj>0</b><span>live projects</span></div>
+  </div>
+</div></section>
+
+<section id="experience" style="padding-top:10px"><div class="wrap ex">
+  <div class="exl"><p class="kk rv">02 / Experience</p><h2 class="t rv">Where I’ve worked</h2><p class="lead rv">Promoted twice at the same company, after starting as an intern.</p></div>
+  <div class="tlv" id="tlv">
+    <article class="ti card rv now"><time>JAN 2026 – PRESENT</time><h3>Senior Web Developer</h3><p>Mavericks &amp; Mushers Media Pvt. Ltd. Promoted in January 2026.</p><ul><li>Build modern, responsive web apps in React.js, Next.js, TypeScript and Firebase.</li><li>Develop reusable UI components and integrate APIs.</li><li>Improve application performance and user experience.</li></ul></article>
+    <article class="ti card rv"><time>DEC 2023 – JAN 2026</time><h3>Design Developer</h3><p>Mavericks &amp; Mushers Media Pvt. Ltd.</p></article>
+    <article class="ti card rv"><time>SEPT 2023 – DEC 2023</time><h3>HTML Developer Intern</h3><p>Mavericks &amp; Mushers Media Pvt. Ltd.</p></article>
+    <article class="ti card rv"><time>APR 2023 – SEPT 2023</time><h3>Freelance web developer</h3><p>Built websites for various clients.</p></article>
+  </div>
+</div></section>
+
+<section id="skills" style="padding-top:10px"><div class="wrap">
+  <p class="kk rv">03 / Skills and tools</p><h2 class="t rv">What I work with</h2><p class="lead rv">My daily tools, grouped by area.</p>
+  <div class="bn">
+    <div class="card sk c7 rv"><h3><i style="--g:var(--a)">&lt;/&gt;</i>Frontend</h3><div class="tw"><span class="tool"><b style="background:#9AE3FF">Re</b>React JS</span><span class="tool"><b style="background:#D8D8F0">Nx</b>Next.js</span><span class="tool"><b style="background:#7DB7FF">TS</b>TypeScript</span><span class="tool"><b style="background:#FFE15A">JS</b>JavaScript</span><span class="tool"><b style="background:#FF9E7A">H5</b>HTML</span><span class="tool"><b style="background:#8FD3FF">C3</b>CSS</span><span class="tool"><b style="background:#8DF0F0">Tw</b>Tailwind</span></div></div>
+    <div class="card sk c5 rv" style="--d:1"><h3><i style="--g:var(--c)">⚙</i>Backend and cloud</h3><div class="tw"><span class="tool"><b style="background:#B6F58C">No</b>Node JS</span><span class="tool"><b style="background:#FFC83D">Fb</b>Firebase</span></div></div>
+    <div class="card sk c6 rv"><h3><i style="--g:var(--b)">W</i>CMS</h3><div class="tw"><span class="tool"><b style="background:#C9C2FF">Wp</b>WordPress</span></div></div>
+    <div class="card sk c6 rv" style="--d:1"><h3><i style="--g:var(--d)">✎</i>Design</h3><div class="tw"><span class="tool"><b style="background:#7DB7FF">Ps</b>Photoshop</span><span class="tool"><b style="background:#A9F0E3">Cv</b>Canva</span></div></div>
+    <div class="card bars c12 rv">
+      <div><div class="bt"><span>Web design</span><span>90%</span></div><div class="bar2"><i style="--w:90%"></i></div></div>
+      <div><div class="bt"><span>WordPress</span><span>80%</span></div><div class="bar2"><i style="--w:80%"></i></div></div>
+      <div><div class="bt"><span>Full stack development</span><span>70%</span></div><div class="bar2"><i style="--w:70%"></i></div></div>
+      <div><div class="bt"><span>Graphic design</span><span>70%</span></div><div class="bar2"><i style="--w:70%"></i></div></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="projects" style="padding-top:10px"><div class="wrap">
+  <p class="kk rv">04 / Projects</p><h2 class="t rv">Live projects</h2><p class="lead rv" id="plead">17 products shipped: 13 full stack apps and 4 WordPress sites. Every card opens the live site.</p>
+  <div class="filters" role="group" aria-label="Select category"><button class="fb" data-f="all" aria-pressed="true">All</button><button class="fb" data-f="fs" aria-pressed="false">Full Stack</button><button class="fb" data-f="wp" aria-pressed="false">WordPress</button><input id="ps" type="search" placeholder="Search projects" aria-label="Search projects"></div>
+  <p class="shown" id="shown" aria-live="polite"></p>
+  <ul class="pg" id="pg"></ul>
+</div></section>
+
+<section style="padding-top:10px"><div class="wrap">
+  <p class="kk rv">05 / Services</p><h2 class="t rv">How I can help</h2><p class="lead rv">Work I can take on for your team or your clients.</p>
+  <div class="svc">
+    <div class="sv card rv"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8"/></svg><h3>Web design</h3><p>Modern, high-quality design at a professional level.</p></div>
+    <div class="sv card rv" style="--d:1"><svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg><h3>Web development</h3><p>High-quality sites and apps built professionally.</p></div>
+    <div class="sv card rv" style="--d:2"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><h3>WordPress</h3><p>Professional, modern WordPress websites.</p></div>
+    <div class="sv card rv" style="--d:3"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9 1 5.5-5-2.7-5 2.7 1-5.5-4-3.9 5.5-.8z"/></svg><h3>Graphic design</h3><p>Logos, ads and creatives.</p></div>
+    <div class="sv card rv" style="--d:4"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z"/></svg><h3>Photo and video editing</h3><p>Edits made to your requirements.</p></div>
+  </div>
+</div></section>
+
+<section id="education" style="padding-top:10px"><div class="wrap">
+  <p class="kk rv">06 / Education</p><h2 class="t rv">Education</h2><p class="lead rv">Three milestones that led here.</p>
+  <div class="edu">
+    <div class="ed card rv"><time>2022 – 2024</time><h3>Master of Computer Applications</h3><p>Naraina College of Engineering &amp; Technology, Ratanpur, Kanpur</p></div>
+    <div class="ed card rv" style="--d:1"><time>2019 – 2022</time><h3>Bachelor of Computer Applications</h3><p>Naraina College of Management, Panki, Kanpur</p></div>
+    <div class="ed card rv" style="--d:2"><time>COMPLETED 2019</time><h3>Academic qualification</h3><p>SVSSIC Madhuban, Mau</p></div>
+  </div>
+</div></section>
+
+<section id="contact" style="padding-top:10px"><div class="wrap">
+  <div class="cta rv"><div class="gridbg" aria-hidden="true"></div><p class="kk" style="color:#FFB81F">07 / Contact</p><h2>Looking for a developer? Let’s talk.</h2><p>I’m open to full-time roles and freelance projects. Message me and I’ll reply quickly.</p><div class="row"><a class="btn w" href="https://wa.me/917983889813" target="_blank" rel="noopener">Message on WhatsApp</a><a class="btn o" href="mailto:iconic.chandu777@gmail.com">Send an email</a></div></div>
+  <div class="cg">
+    <a class="cc card rv" href="https://wa.me/917983889813" target="_blank" rel="noopener"><small>WhatsApp</small><b>Quick chat and response</b><span>Message now →</span></a>
+    <a class="cc card rv" style="--d:1" href="mailto:iconic.chandu777@gmail.com"><small>Email</small><b>iconic.chandu777@gmail.com</b><span>Send email →</span></a>
+    <a class="cc card rv" style="--d:2" href="tel:+917983889813"><small>Phone</small><b>+91 79838 89813</b><span>Call direct →</span></a>
+  </div>
+  <form class="card rv" id="f">
+    <input required id="fn" placeholder="Your name" aria-label="Your name"><input id="fe" type="email" placeholder="Your email" aria-label="Your email">
+    <textarea class="full" required id="fm" placeholder="Tell me about the role or project" aria-label="Your message"></textarea>
+    <button class="btn p full" type="submit">Send via WhatsApp</button>
+  </form>
+</div></section>
+</main>
+<footer><div class="wrap"><span>© 2026 Chandrakant Maurya · Kanpur, India</span><a href="https://iconicchandu.online/" target="_blank" rel="noopener" style="text-decoration:underline">iconicchandu.online</a></div></footer>
+
+<script src="projects-data.js"></script>
+<script>
+(function(){
+  var RM=matchMedia("(prefers-reduced-motion:reduce)").matches,fine=matchMedia("(pointer:fine)").matches;
+  /* Role typing */
+  var rl=["Full Stack Developer","React and Next.js builder","WordPress developer","UI designer"],ri=0,rc=0,rd=false,re=document.getElementById("role");
+  (function ty(){var w=rl[ri];rc+=rd?-1:1;re.textContent=w.slice(0,rc);var d=rd?35:75;if(!rd&&rc===w.length){if(RM)return;rd=true;d=1500}else if(rd&&rc===0){rd=false;ri=(ri+1)%rl.length;d=300}setTimeout(ty,d)})();
+  /* Marquee */
+  var w=["React","Next.js","TypeScript","Firebase","Node JS","Tailwind","WordPress","JavaScript","HTML","CSS","Photoshop","Canva"],m="";
+  for(var a=0;a<4;a++)w.forEach(function(x){m+="<span>"+x+"</span>"});document.getElementById("mq").innerHTML=m;
+  /* Projects (data from projects-data.js: name, link, type) */
+  var D=(typeof liveProjects!=="undefined"&&Array.isArray(liveProjects))?liveProjects:[];
+  var P=D.map(function(p){var wp=/word|wp/i.test(String(p.type||"").replace(/[\s-]/g,""));return [p.name||"Untitled",p.liveLink||"#",wp?"wp":"fs",p.image||"",p.logoBg||""]});
+  document.querySelectorAll("[data-proj]").forEach(function(e){e.dataset.n=P.length});
+  var nfs=P.filter(function(p){return p[2]==="fs"}).length,pl=document.getElementById("plead"),sa=document.getElementById("psat");
+  if(pl)pl.textContent=P.length+" products shipped: "+nfs+" full stack apps and "+(P.length-nfs)+" WordPress sites. Every card opens the live site.";
+  if(sa)sa.textContent=P.length+" shipped";
+  var pal=[["#3556FF","#8B6DFF"],["#FF6A3D","#FFB81F"],["#0FAE80","#3556FF"],["#FF4D9D","#FF6A3D"],["#FFB81F","#0FAE80"],["#8B6DFF","#FF4D9D"]];
+  function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+  function mono(n){var q=n.split(" ");if(q.length>1)return /^[A-Z]{2,3}$/.test(q[0])?q[0]:(q[0][0]+q[1][0]).toUpperCase();var x=n.slice(1).match(/[A-Z]/);return x?n[0]+x[0]:n[0]}
+  var pg=document.getElementById("pg");
+  pg.innerHTML=P.map(function(p,i){var host=p[1].replace(/^https?:\/\/(www\.)?/,"").replace(/\/$/,""),c=pal[i%6];
+    return '<li class="rv" data-c="'+p[2]+'" data-q="'+esc((p[0]+" "+host).toLowerCase())+'" style="--d:'+(i%3)+'"><a class="pj" href="'+p[1]+'" target="_blank" rel="noopener noreferrer" aria-label="'+esc(p[0])+', open live site"><div class="br"><i></i><i></i><i></i><span>'+host+'</span></div><div class="pv" style="--p1:'+c[0]+';--p2:'+c[1]+'"><b'+(p[4]?' style="background:'+esc(p[4])+'"':'')+'><span>'+esc(mono(p[0]))+'</span>'+(p[3]?'<img src="'+esc(p[3])+'" alt="" loading="lazy">':'')+'</b></div><div class="pm"><div><h3>'+esc(p[0])+'</h3><small>'+(p[2]==="fs"?"FULL STACK":"WORDPRESS")+'</small></div><span class="ar" aria-hidden="true">↗</span></div></a></li>'}).join("");
+  pg.querySelectorAll(".pv img").forEach(function(im){im.onerror=function(){im.remove()};im.onload=function(){im.parentNode.classList.add("has")};if(im.complete&&im.naturalWidth)im.onload()});
+  var S={f:"all",q:""},fb=document.querySelectorAll(".fb"),cf=P.filter(function(p){return p[2]==="fs"}).length;
+  fb[0].textContent="All ("+P.length+")";fb[1].textContent="Full Stack ("+cf+")";fb[2].textContent="WordPress ("+(P.length-cf)+")";
+  function ap(){var n=0;pg.querySelectorAll("li").forEach(function(li){var ok=(S.f==="all"||li.dataset.c===S.f)&&li.dataset.q.indexOf(S.q)>-1;li.hidden=!ok;if(ok)n++});document.getElementById("shown").textContent="Showing "+n+" of "+P.length+" projects"}
+  fb.forEach(function(b){b.onclick=function(){fb.forEach(function(x){x.setAttribute("aria-pressed",x===b)});S.f=b.dataset.f;ap()}});
+  document.getElementById("ps").oninput=function(){S.q=this.value.trim().toLowerCase();ap()};ap();
+  /* Reveal */
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12,rootMargin:"0px 0px -6% 0px"});
+  document.querySelectorAll(".rv").forEach(function(el){io.observe(el)});
+  /* Counters */
+  var done=false;
+  function count(){if(done)return;done=true;document.querySelectorAll("[data-n]").forEach(function(e){var n=+e.dataset.n,s=e.dataset.s||"",st=null;function f(t){st=st||t;var p=Math.min((t-st)/1500,1);e.textContent=Math.round(n*(1-Math.pow(1-p,3)))+s;if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)})}
+  setTimeout(count,900);
+  /* Scroll: progress + timeline */
+  var prog=document.getElementById("prog"),tlv=document.getElementById("tlv"),tick=false;
+  function sc(){tick=false;var d=document.documentElement,mx=d.scrollHeight-innerHeight;prog.style.setProperty("--s",mx>0?Math.min(scrollY/mx,1):0);var r=tlv.getBoundingClientRect();tlv.style.setProperty("--pg",Math.max(0,Math.min(1,(innerHeight*.65-r.top)/r.height)))}
+  addEventListener("scroll",function(){if(!tick){tick=true;requestAnimationFrame(sc)}},{passive:true});sc();
+  /* Hero: grid highlight + profile card tilt */
+  if(fine&&!RM){
+    var hero=document.getElementById("hero"),gh=document.getElementById("gh"),pw=document.getElementById("pw"),ex=0,ey=0,pend=false;
+    hero.addEventListener("pointermove",function(e){ex=e.clientX;ey=e.clientY;if(!pend){pend=true;requestAnimationFrame(mv)}},{passive:true});
+    function mv(){pend=false;var r=hero.getBoundingClientRect();gh.style.setProperty("--mx",(ex-r.left)+"px");gh.style.setProperty("--my",(ey-r.top)+"px");
+      var q=pw.getBoundingClientRect(),x=(ex-q.left)/q.width-.5,y=(ey-q.top)/q.height-.5;
+      if(Math.abs(x)<1.2&&Math.abs(y)<1.2){pw.style.setProperty("--rx",(-y*10).toFixed(2)+"deg");pw.style.setProperty("--ry",(x*12).toFixed(2)+"deg");pw.style.setProperty("--sx",((1-(x+.5))*100).toFixed(0)+"%")}else{pw.style.setProperty("--rx","0deg");pw.style.setProperty("--ry","0deg")}}
+    hero.addEventListener("pointerleave",function(){pw.style.setProperty("--rx","0deg");pw.style.setProperty("--ry","0deg")});
+  }
+  /* Theme, PDF, form */
+  var root=document.documentElement;
+  document.getElementById("tg").onclick=function(){var d=root.dataset.theme?root.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;root.dataset.theme=d?"light":"dark"};
+  document.getElementById("pdf").onclick=function(){window.print()};
+  document.getElementById("f").addEventListener("submit",function(e){e.preventDefault();var t="Hi Chandrakant, I’m "+document.getElementById("fn").value+" ("+document.getElementById("fe").value+"). "+document.getElementById("fm").value;window.open("https://wa.me/917983889813?text="+encodeURIComponent(t),"_blank")});
+})();
+</script>
 </body>
-
 </html>
