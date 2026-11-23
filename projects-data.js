@@ -23,7 +23,7 @@ const liveProjects = [
   // FullStack Projects
   {
     name: "Mailo",
-    image: "./public/mainlogo.png",
+    image: "./assets/images/mainlogo.png",
     liveLink: "#mailflow",
     type: "fullstack",
     logoBg: "#ffffff"
