@@ -927,64 +927,117 @@
       }
     }
 
+    @keyframes tl-radar {
+      0% {
+        box-shadow: 0 0 0 4px var(--bg), 0 0 0 0 rgba(52, 214, 163, .7), 0 0 14px rgba(52, 214, 163, .5);
+      }
+
+      60% {
+        box-shadow: 0 0 0 4px var(--bg), 0 0 0 10px rgba(52, 214, 163, 0), 0 0 20px rgba(52, 214, 163, .3);
+      }
+
+      100% {
+        box-shadow: 0 0 0 4px var(--bg), 0 0 0 0 rgba(52, 214, 163, 0), 0 0 14px rgba(52, 214, 163, .5);
+      }
+    }
+
     .tlv {
+      --tl-x: 16px;
+      --tl-w: 3px;
+      --tl-pad: 48px;
+      --tl-dot: 18px;
       position: relative;
-      padding-left: 36px;
+      padding-left: var(--tl-pad);
       display: grid;
-      gap: 18px
+      gap: 20px;
     }
 
     .tlv::before,
     .tlv::after {
       content: "";
       position: absolute;
-      left: 8px;
-      top: 8px;
-      bottom: 8px;
-      width: 3px;
-      border-radius: 3px;
-      background: var(--line)
+      left: var(--tl-x);
+      width: var(--tl-w);
+      margin-left: calc(var(--tl-w) / -2);
+      top: var(--tl-top, 32px);
+      bottom: var(--tl-bottom, 82px);
+      border-radius: 999px;
+    }
+
+    .tlv::before {
+      background: var(--line);
+      box-shadow: inset 0 0 2px rgba(0, 0, 0, .3);
     }
 
     .tlv::after {
-      background: linear-gradient(var(--a), var(--b));
+      background: linear-gradient(180deg, var(--c) 0%, var(--a) 32%, #a07cfe 68%, var(--b) 100%);
+      box-shadow: 0 0 12px rgba(108, 139, 255, .5), 0 0 22px rgba(52, 214, 163, .35);
       transform-origin: 50% 0;
-      transform: scaleY(var(--pg, 0))
+      transform: scaleY(var(--pg, 0));
+      z-index: 1;
     }
 
     .ti {
       padding: 24px 26px;
       position: relative;
-      transition: transform .35s cubic-bezier(.2, .8, .2, 1), box-shadow .35s
+      transition: transform .35s cubic-bezier(.2, .8, .2, 1), box-shadow .35s, border-color .35s;
     }
 
     .ti:hover {
       transform: translateX(6px);
-      box-shadow: 0 24px 40px -26px var(--shadow)
+      box-shadow: 0 22px 42px -22px var(--shadow), 0 0 25px -12px rgba(108, 139, 255, .25);
+      border-color: rgba(108, 139, 255, .35);
+    }
+
+    .ti.now:hover {
+      border-color: rgba(52, 214, 163, .35);
+      box-shadow: 0 22px 42px -22px var(--shadow), 0 0 25px -12px rgba(52, 214, 163, .25);
     }
 
     .ti::before {
       content: "";
       position: absolute;
-      left: -35px;
-      top: 30px;
-      width: 15px;
-      height: 15px;
+      left: calc(var(--tl-x) - var(--tl-pad) - 1px);
+      top: 32px;
+      width: var(--tl-dot);
+      height: var(--tl-dot);
       border-radius: 50%;
-      background: var(--bg);
-      border: 3px solid var(--a)
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle at center, var(--a) 0%, var(--a) 34%, var(--card) 38%, var(--card) 100%);
+      border: 2px solid var(--a);
+      box-shadow: 0 0 0 4px var(--bg), 0 0 12px rgba(108, 139, 255, .25);
+      z-index: 2;
+      transition: transform .35s cubic-bezier(.2, .8, .2, 1), box-shadow .35s, border-color .35s, background .35s;
+    }
+
+    .ti:hover::before {
+      transform: translate(calc(-50% - 6px), -50%) scale(1.22);
+      border-color: #a4bdfc;
+      box-shadow: 0 0 0 4px var(--bg), 0 0 18px rgba(108, 139, 255, .8), 0 0 32px rgba(108, 139, 255, .4);
+      background: radial-gradient(circle at center, #ffffff 0%, var(--a) 42%, var(--card) 46%, var(--card) 100%);
     }
 
     .ti.now::before {
-      background: var(--c);
+      background: radial-gradient(circle at center, #ffffff 0%, var(--c) 46%, var(--card) 50%, var(--card) 100%);
       border-color: var(--c);
-      animation: pu 2s infinite
+      animation: tl-radar 2.4s cubic-bezier(.2, .8, .2, 1) infinite;
+    }
+
+    .ti.now:hover::before {
+      transform: translate(calc(-50% - 6px), -50%) scale(1.22);
+      border-color: var(--c);
+      box-shadow: 0 0 0 4px var(--bg), 0 0 22px rgba(52, 214, 163, .9), 0 0 36px rgba(52, 214, 163, .45);
     }
 
     .ti time {
       font-size: .8rem;
       font-weight: 700;
-      color: var(--b)
+      color: var(--b);
+      letter-spacing: .02em;
+    }
+
+    .ti.now time {
+      color: var(--c);
     }
 
     .ti h3 {
@@ -1602,6 +1655,714 @@
         padding: 16px 0
       }
     }
+
+    /* Mailo Showcase Section */
+    .mf-sec {
+      position: relative;
+      padding: 24px 0 44px;
+    }
+
+    .mf-card {
+      position: relative;
+      border-radius: 28px;
+      background: var(--card);
+      border: 1px solid rgba(108, 139, 255, 0.28);
+      box-shadow: 0 20px 48px -20px var(--shadow), 0 0 32px -16px rgba(108, 139, 255, 0.18);
+      overflow: hidden;
+      transition: border-color .35s, box-shadow .35s, transform .35s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .mf-card:hover {
+      border-color: rgba(108, 139, 255, 0.48);
+      box-shadow: 0 26px 58px -20px var(--shadow), 0 0 44px -14px rgba(108, 139, 255, 0.28);
+    }
+
+    /* Tech grid layout background */
+    .mf-card .gridbg {
+      position: absolute;
+      inset: 0;
+      background-size: 44px 44px;
+      background-image: linear-gradient(rgba(108, 139, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(108, 139, 255, 0.08) 1px, transparent 1px);
+      -webkit-mask-image: radial-gradient(ellipse 95% 85% at 50% 20%, #000 30%, transparent 88%);
+      mask-image: radial-gradient(ellipse 95% 85% at 50% 20%, #000 30%, transparent 88%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .mf-card>*:not(.gridbg) {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Minimized Teaser Header */
+    .mf-mini-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 28px 34px;
+      cursor: pointer;
+      user-select: none;
+      transition: background .25s ease;
+    }
+
+    .mf-mini-bar:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .mf-mini-left {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      flex: 1;
+    }
+
+    .mf-logo-tile {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 16px;
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
+      flex-shrink: 0;
+    }
+
+    .mf-logo {
+      height: 36px;
+      width: auto;
+      max-width: 150px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .mf-mini-meta {
+      flex: 1;
+    }
+
+    .mf-mini-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .mf-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(52, 214, 163, 0.12);
+      border: 1px solid rgba(52, 214, 163, 0.35);
+      font: 700 .76rem 'JetBrains Mono', monospace;
+      color: var(--c);
+      letter-spacing: .04em;
+    }
+
+    .mf-live-pulse {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--c);
+      box-shadow: 0 0 7px var(--c);
+      animation: pu 2s infinite;
+    }
+
+    .mf-phase-pill {
+      font: 600 .76rem 'JetBrains Mono', monospace;
+      color: var(--muted);
+      letter-spacing: .02em;
+    }
+
+    .mf-pill {
+      font: 700 .74rem 'JetBrains Mono', monospace;
+      color: var(--a);
+      background: rgba(108, 139, 255, 0.12);
+      border: 1px solid rgba(108, 139, 255, 0.28);
+      padding: 4px 11px;
+      border-radius: 999px;
+    }
+
+    .mf-pill.accent {
+      color: var(--c);
+      background: rgba(52, 214, 163, 0.1);
+      border-color: rgba(52, 214, 163, 0.28);
+    }
+
+    .mf-mini-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 6px;
+      letter-spacing: -.015em;
+      color: var(--ink);
+    }
+
+    .mf-mini-sub {
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.55;
+      margin-bottom: 12px;
+      max-width: 740px;
+    }
+
+    .mf-mini-chips {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+
+    .mf-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font: 600 .74rem 'JetBrains Mono', monospace;
+      padding: 4px 11px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      color: var(--ink);
+    }
+
+    .mf-chip.accent {
+      background: rgba(52, 214, 163, 0.12);
+      border-color: rgba(52, 214, 163, 0.35);
+      color: var(--c);
+    }
+
+    .mf-chip-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--c);
+      display: inline-block;
+    }
+
+    .mf-mini-right {
+      flex-shrink: 0;
+    }
+
+    .mf-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      border-radius: 14px;
+      background: var(--ink);
+      color: var(--bg);
+      border: 1px solid var(--ink);
+      font: 700 .86rem 'Plus Jakarta Sans', sans-serif;
+      cursor: pointer;
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+      white-space: nowrap;
+    }
+
+    .mf-toggle-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px -8px var(--shadow);
+    }
+
+    .mf-card[data-open="true"] .mf-toggle-btn {
+      background: var(--card);
+      color: var(--ink);
+      border-color: var(--line);
+    }
+
+    .mf-arrow {
+      display: inline-block;
+      font-size: .9rem;
+      transition: transform .35s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .mf-card[data-open="true"] .mf-mini-bar .mf-arrow {
+      transform: rotate(180deg);
+    }
+
+    /* Expandable Details Container */
+    .mf-expandable {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows .45s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .mf-card[data-open="true"] .mf-expandable {
+      grid-template-rows: 1fr;
+    }
+
+    .mf-expand-inner {
+      overflow: hidden;
+      border-top: 0 solid var(--line);
+      transition: border-top-width .2s ease, padding .35s ease, opacity .35s ease;
+      opacity: 0;
+      padding: 0 34px 0;
+    }
+
+    .mf-card[data-open="true"] .mf-expand-inner {
+      border-top: 1px solid var(--line);
+      opacity: 1;
+      padding: 30px 34px 34px;
+    }
+
+    /* Hero section inside expanded card */
+    .mf-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+      gap: 34px;
+      align-items: start;
+      margin-bottom: 30px;
+    }
+
+    .mf-title {
+      font-size: 1.55rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 12px;
+      letter-spacing: -.02em;
+    }
+
+    .mf-summary {
+      color: var(--muted);
+      font-size: .94rem;
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .mf-summary b {
+      color: var(--ink);
+    }
+
+    .mf-arch-badge {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 12px 16px;
+      border-radius: 14px;
+      background: rgba(108, 139, 255, 0.06);
+      border: 1px solid rgba(108, 139, 255, 0.22);
+      margin-bottom: 20px;
+    }
+
+    .mf-arch-icon {
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      line-height: 1.2;
+    }
+
+    .mf-arch-badge p {
+      margin: 0;
+      font-size: .83rem;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    .mf-arch-badge b {
+      color: var(--ink);
+    }
+
+    .mf-cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Live Telemetry / Deliverability Mockup */
+    .mf-dash-mockup {
+      background: rgba(10, 11, 16, 0.94);
+      border: 1px solid rgba(108, 139, 255, 0.22);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 16px 36px -16px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .mf-mockup-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      flex-wrap: wrap;
+    }
+
+    .mf-window-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .mf-window-dots i {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #ff5f56;
+      display: inline-block;
+    }
+
+    .mf-window-dots i:nth-child(2) {
+      background: #ffbd2e;
+    }
+
+    .mf-window-dots i:nth-child(3) {
+      background: #27c93f;
+    }
+
+    .mf-domain-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font: 700 .78rem 'JetBrains Mono', monospace;
+      color: var(--ink);
+    }
+
+    .mf-shield-check {
+      color: var(--c);
+      font-weight: 900;
+    }
+
+    .mf-badge-auth {
+      font-size: .68rem;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: rgba(52, 214, 163, 0.15);
+      border: 1px solid rgba(52, 214, 163, 0.3);
+      color: var(--c);
+    }
+
+    .mf-provider-pill {
+      font: 700 .72rem 'JetBrains Mono', monospace;
+      color: var(--d);
+      background: rgba(255, 210, 94, 0.1);
+      border: 1px solid rgba(255, 210, 94, 0.25);
+      padding: 3px 9px;
+      border-radius: 999px;
+    }
+
+    .mf-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .mf-kpi-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 14px;
+      padding: 11px 13px;
+    }
+
+    .mf-kpi-card small {
+      display: block;
+      font-size: .72rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .mf-kpi-val {
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .mf-trend {
+      font-size: .68rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .mf-trend.up {
+      color: var(--c);
+    }
+
+    .mf-trend.low {
+      color: var(--b);
+    }
+
+    .mf-bar-track {
+      height: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .mf-bar-fill {
+      height: 100%;
+      border-radius: 999px;
+    }
+
+    .mf-queue-status {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+    }
+
+    .mf-queue-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .82rem;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .mf-dot-active {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--c);
+      box-shadow: 0 0 6px var(--c);
+      animation: pu 1.8s infinite;
+    }
+
+    .mf-queue-row b {
+      color: var(--ink);
+    }
+
+    .mf-queue-stat {
+      margin-left: auto;
+      font: 600 .72rem 'JetBrains Mono', monospace;
+      color: var(--muted);
+    }
+
+    .mf-queue-progress {
+      height: 5px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 6px;
+    }
+
+    .mf-queue-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--a), var(--c));
+      border-radius: 999px;
+    }
+
+    .mf-queue-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: .74rem;
+      color: var(--muted);
+    }
+
+    .mf-queue-meta b {
+      color: var(--ink);
+    }
+
+    .mf-dns-pills {
+      display: flex;
+      gap: 5px;
+      flex-direction: column;
+    }
+
+    .mf-dns-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .73rem;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .mf-dns-item .mf-chk {
+      color: var(--c);
+      font-weight: 800;
+    }
+
+    .mf-dns-item code {
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.04);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: .7rem;
+    }
+
+    /* Capabilities Divider */
+    .mf-divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin: 28px 0 22px;
+      color: var(--muted);
+      font: 700 .76rem 'JetBrains Mono', monospace;
+      letter-spacing: .08em;
+    }
+
+    .mf-divider::before,
+    .mf-divider::after {
+      content: "";
+      flex: 1;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mf-divider span {
+      padding: 0 16px;
+    }
+
+    /* 8-Grid Features */
+    .mf-grid-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+      gap: 13px;
+      margin-bottom: 30px;
+    }
+
+    .mf-f-card {
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--line);
+      transition: transform .25s ease, border-color .25s ease, background .25s ease, box-shadow .25s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .mf-f-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(108, 139, 255, 0.38);
+      background: rgba(255, 255, 255, 0.045);
+      box-shadow: 0 12px 24px -10px var(--shadow);
+    }
+
+    .mf-f-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(108, 139, 255, 0.1);
+      border: 1px solid rgba(108, 139, 255, 0.25);
+      color: var(--fc, var(--a));
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mf-f-text h4 {
+      font-size: .93rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: var(--ink);
+    }
+
+    .mf-f-text p {
+      font-size: .82rem;
+      line-height: 1.5;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* Categorized Tech Stack */
+    .mf-tech-section {
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      margin-bottom: 24px;
+    }
+
+    .mf-tech-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -.01em;
+    }
+
+    .mf-tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+    }
+
+    .mf-tech-col {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 15px;
+    }
+
+    .mf-tech-col.full {
+      grid-column: 1 / -1;
+    }
+
+    .mf-tech-heading {
+      display: block;
+      font: 700 .76rem 'JetBrains Mono', monospace;
+      color: var(--b);
+      margin-bottom: 10px;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+
+    .mf-tech-pills {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .mf-tech-pills span {
+      font: 600 .74rem 'JetBrains Mono', monospace;
+      padding: 4px 9px;
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      color: var(--ink);
+    }
+
+    /* Bottom Action & Collapse Bar */
+    .mf-bottom-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      flex-wrap: wrap;
+    }
+
+    @media(max-width:980px) {
+      .mf-mini-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+        padding: 22px 20px;
+      }
+
+      .mf-mini-left {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      .mf-toggle-btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .mf-hero {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 26px;
+      }
+
+      .mf-expand-inner {
+        padding: 0 20px 0;
+      }
+
+      .mf-card[data-open="true"] .mf-expand-inner {
+        padding: 24px 20px 24px;
+      }
+
+      .mf-kpi-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
@@ -1609,7 +2370,8 @@
   <div id="prog" aria-hidden="true"></div>
   <header>
     <div class="wrap">
-      <a class="logo" href="#top"><img class="logo-av" src="assets/images/profile.jpg" alt="Chandrakant Maurya" width="30" height="30">Chandrakant</a>
+      <a class="logo" href="#top"><img class="logo-av" src="assets/images/profile.jpg" alt="Chandrakant Maurya"
+          width="30" height="30">Chandrakant</a>
       <nav><a class="l" href="#about">About</a><a class="l" href="#experience">Experience</a><a class="l"
           href="#skills">Skills</a><a class="l" href="#projects">Projects</a><button class="tg" id="tg"
           aria-label="Switch light or dark theme">◐</button><a class="btn p" href="#contact">Hire me</a></nav>
@@ -1629,8 +2391,8 @@
             intuitive digital experiences with clean code and thoughtful design. 10+ freelance websites and 150+ email
             templates delivered.</p>
           <div class="row en" style="--e:4"><a class="btn a" href="mailto:iconic.chandu777@gmail.com">Email
-              me</a><button class="btn" id="pdf" type="button">Save resume as PDF</button><a class="btn"
-              href="https://wa.me/917983889813" target="_blank" rel="noopener">WhatsApp</a></div>
+              me</a><a class="btn" id="pdf" href="assets/Resume.pdf" download="Resume.pdf">Save resume as PDF</a><a
+              class="btn" href="https://wa.me/917983889813" target="_blank" rel="noopener">WhatsApp</a></div>
           <div class="facts en" style="--e:5"><span>Kanpur, India</span><span>3+ years experience</span><span>MCA
               graduate</span></div>
         </div>
@@ -1673,6 +2435,396 @@
         </div>
       </div>
     </div>
+
+    <!-- Spotlight: Mailo — Email Campaign Management Platform -->
+    <section class="mf-sec" id="mailflow">
+      <div id="mailo" style="position:relative;top:-80px;"></div>
+      <div class="wrap">
+        <div class="mf-card card rv" id="mfCard" data-open="false">
+          <!-- Tech grid layout background -->
+          <div class="gridbg" aria-hidden="true"></div>
+
+          <!-- Minimized Header / Teaser Bar (Always Visible, Clickable) -->
+          <div class="mf-mini-bar" id="mfToggle" role="button" tabindex="0" aria-expanded="false"
+            aria-controls="mfDetails">
+            <div class="mf-mini-left">
+              <div class="mf-logo-tile">
+                <img src="public/mainlogo.png" alt="Mailo" onerror="this.src='assets/mainlogo.png'" class="mf-logo"
+                  width="140" height="46">
+              </div>
+              <div class="mf-mini-meta">
+                <div class="mf-mini-badge-row">
+                  <span class="mf-badge"><span class="mf-live-pulse"></span> CURRENTLY BUILDING</span>
+                  <span class="mf-phase-pill">v1.0-beta • Enterprise Deliverability</span>
+                  <span class="mf-pill">Email Infrastructure</span>
+                </div>
+                <h2 class="mf-mini-title">Mailo — High-Deliverability Email Campaign &amp; Infrastructure Platform</h2>
+                <p class="mf-mini-sub">
+                  Centralized campaign operations with automated DNS (SPF, DKIM, DMARC), multi-provider abstraction
+                  (Amazon SES, Mailgun, SendGrid), and BullMQ queue processing.
+                </p>
+                <div class="mf-mini-chips">
+                  <span class="mf-chip accent"><i class="mf-chip-dot"></i> 99.8% Inbox Deliverability</span>
+                  <span class="mf-chip">Amazon SES • Mailgun • SendGrid</span>
+                  <span class="mf-chip">BullMQ + Redis Cluster</span>
+                  <span class="mf-chip">React + Vite + TypeScript</span>
+                  <span class="mf-chip">PostgreSQL + Prisma</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mf-mini-right">
+              <button class="mf-toggle-btn" id="mfBtn" type="button" aria-label="Toggle platform details">
+                <span class="mf-btn-text">Explore Full Platform &amp; Specs</span>
+                <span class="mf-arrow" aria-hidden="true">▾</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Expandable Details Wrapper -->
+          <div class="mf-expandable" id="mfDetails">
+            <div class="mf-expand-inner">
+              <!-- Main Hero Row (Intro + Live Telemetry Mockup) -->
+              <div class="mf-hero">
+                <div class="mf-intro">
+                  <div class="mf-brand-row">
+                    <div class="mf-badges">
+                      <span class="mf-pill accent">Multi-Provider Abstraction</span>
+                      <span class="mf-pill">Multi-Tenant Architecture</span>
+                    </div>
+                  </div>
+
+                  <h3 class="mf-title">Centralized Deliverability &amp; Campaign Automation Engine</h3>
+                  <p class="mf-summary">
+                    A modern email campaign management and deliverability platform engineered to simplify high-volume
+                    operations through centralized campaign management, <b>automated DNS authentication</b> (SPF, DKIM,
+                    DMARC), <b>multi-provider abstraction</b> (Amazon SES, Mailgun, SendGrid), <b>advanced audience
+                      segmentation</b>, and <b>scalable BullMQ background processing</b>.
+                  </p>
+
+                  <!-- Architecture Highlights Callout -->
+                  <div class="mf-arch-badge">
+                    <span class="mf-arch-icon">⚡</span>
+                    <p><b>Modular Architecture:</b> Provider abstraction layer • Asynchronous Redis &amp; BullMQ worker
+                      queues • Multi-tenant data isolation • AES-256 encrypted credentials • Structured Pino logging</p>
+                  </div>
+
+                  <div class="mf-cta-row">
+                    <a class="btn p" href="#contact">Inquire for Early Access</a>
+                    <a class="btn"
+                      href="mailto:iconic.chandu777@gmail.com?subject=Mailo%20Platform%20Demo%20Inquiry">Request
+                      Platform Demo ↗</a>
+                  </div>
+                </div>
+
+                <!-- Right Column: Interactive Deliverability Dashboard Mockup -->
+                <div class="mf-preview-wrap">
+                  <div class="mf-dash-mockup">
+                    <div class="mf-mockup-header">
+                      <div class="mf-window-dots"><i></i><i></i><i></i></div>
+                      <div class="mf-domain-indicator">
+                        <span class="mf-shield-check">✓</span>
+                        <span>mail.verified.domain</span>
+                        <span class="mf-badge-auth">SPF / DKIM / DMARC PASS</span>
+                      </div>
+                      <span class="mf-provider-pill">Amazon SES ⚡</span>
+                    </div>
+
+                    <div class="mf-mockup-body">
+                      <div class="mf-kpi-grid">
+                        <div class="mf-kpi-card">
+                          <small>Inbox Deliverability</small>
+                          <div class="mf-kpi-val"><span style="color:var(--c)">99.8%</span> <span class="mf-trend up">↑
+                              0.4%</span></div>
+                          <div class="mf-bar-track">
+                            <div class="mf-bar-fill" style="width:99.8%;background:var(--c)"></div>
+                          </div>
+                        </div>
+                        <div class="mf-kpi-card">
+                          <small>Open Rate (Tracking)</small>
+                          <div class="mf-kpi-val"><span style="color:var(--a)">44.2%</span> <span class="mf-trend up">↑
+                              8.1%</span></div>
+                          <div class="mf-bar-track">
+                            <div class="mf-bar-fill" style="width:44.2%;background:var(--a)"></div>
+                          </div>
+                        </div>
+                        <div class="mf-kpi-card">
+                          <small>Click-Through (CTR)</small>
+                          <div class="mf-kpi-val"><span style="color:var(--d)">19.5%</span> <span class="mf-trend up">↑
+                              3.2%</span></div>
+                          <div class="mf-bar-track">
+                            <div class="mf-bar-fill" style="width:19.5%;background:var(--d)"></div>
+                          </div>
+                        </div>
+                        <div class="mf-kpi-card">
+                          <small>Bounce &amp; Suppression</small>
+                          <div class="mf-kpi-val"><span style="color:var(--b)">0.03%</span> <span
+                              class="mf-trend low">Clean</span></div>
+                          <div class="mf-bar-track">
+                            <div class="mf-bar-fill" style="width:2%;background:var(--b)"></div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Live Queue & Background Worker Status -->
+                      <div class="mf-queue-status">
+                        <div class="mf-queue-row">
+                          <span class="mf-dot-active"></span>
+                          <b>BullMQ + Redis Worker Cluster</b>
+                          <span class="mf-queue-stat">Concurrency: 4 • 100/sec</span>
+                        </div>
+                        <div class="mf-queue-progress">
+                          <div class="mf-queue-bar" style="width:78%"></div>
+                        </div>
+                        <div class="mf-queue-meta">
+                          <span>Campaign: <b>Global Announcement Q1</b></span>
+                          <span><b>28,450</b> / 36,500 Dispatched</span>
+                        </div>
+                      </div>
+
+                      <!-- DNS Security Check Pills -->
+                      <div class="mf-dns-pills">
+                        <div class="mf-dns-item"><span class="mf-chk">✓</span> SPF:
+                          <code>v=spf1 include:amazonses.com ~all</code></div>
+                        <div class="mf-dns-item"><span class="mf-chk">✓</span> DKIM: <code>2048-bit RSA verified</code>
+                        </div>
+                        <div class="mf-dns-item"><span class="mf-chk">✓</span> DMARC:
+                          <code>v=DMARC1; p=reject; pct=100</code></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <div class="mf-divider">
+                <span>KEY PLATFORM CAPABILITIES</span>
+              </div>
+
+              <!-- Comprehensive Key Features Grid (8 distinct modules from prompt) -->
+              <div class="mf-grid-features">
+                <!-- Feature 1 -->
+                <div class="mf-f-card">
+                  <div class="mf-f-icon" style="--fc:var(--a)">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <line x1="2" y1="12" x2="22" y2="12"></line>
+                      <path
+                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                      </path>
+                    </svg>
+                  </div>
+                  <div class="mf-f-text">
+                    <h4>Multi-Domain &amp; Automated DNS</h4>
+                    <p>Automated DNS record generation and continuous monitoring for SPF, DKIM (2048-bit), and DMARC
+                      compliance.</p>
+                  </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="mf-f-card">
+                  <div class="mf-f-icon" style="--fc:var(--c)">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                  </div>
+                  <div class="mf-f-text">
+                    <h4>Multi-Provider Email Integration</h4>
+                    <p>Unified provider abstraction for Amazon SES, Mailgun, and SendGrid with automated fallback and
+                      load routing.</p>
+                  </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="mf-f-card">
+                  <div class="mf-f-icon" style="--fc:var(--d)">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="16 18 22 12 16 6"></polyline>
+                      <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                  </div>
+                  <div class="mf-f-text">
+                    <h4>HTML &amp; MJML Template Editor</h4>
+                    <p>Advanced Monaco code editor with live responsive preview, MJML &amp; React Email templates, and
+                      DOMPurify sanitization.</p>
+                  </div>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="mf-f-card">
+                  <div class="mf-f-icon" style="--fc:var(--b)">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                      <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                      <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                      <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                    </svg>
+                  </div>
+                  <div class="mf-f-text">
+                    <h4>Campaign Scheduling &amp; BullMQ</h4>
+                    <p>Bulk dispatch, scheduled sending, and asynchronous background worker processing powered by Redis
+                      &amp; BullMQ.</p>
+                  </div>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="mf-f-card">
+                  <div class="mf-f-icon" style="--fc:var(--a)">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="9" cy="7" r="4"></circle>
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                  </div>
+                  <div class="mf-f-text">
+                    <h4>Audience Segmentation &amp; CSV Import</h4>
+                    <p>Fast client-side CSV parsing with PapaParse, contact attributes, dynamic tags, and audience
+                      segmentation.</p>
+                  </div>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="mf-f-card">
+                  <div class="mf-f-icon" style="--fc:var(--c)">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                  </div>
+                  <div class="mf-f-text">
+                    <h4>Seed List &amp; Placement Testing</h4>
+                    <p>Pre-flight seed list testing to verify inbox delivery across Gmail, Outlook, and Apple Mail
+                      before launching large sends.</p>
+                  </div>
+                </div>
+
+                <!-- Feature 7 -->
+                <div class="mf-f-card">
+                  <div class="mf-f-icon" style="--fc:var(--b)">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="18" y1="20" x2="18" y2="10"></line>
+                      <line x1="12" y1="20" x2="12" y2="4"></line>
+                      <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                  </div>
+                  <div class="mf-f-text">
+                    <h4>Tracking &amp; Recharts Dashboards</h4>
+                    <p>Real-time delivery, open tracking pixels, click redirects, bounces, unsubscribes, and Recharts
+                      analytics dashboards.</p>
+                  </div>
+                </div>
+
+                <!-- Feature 8 -->
+                <div class="mf-f-card">
+                  <div class="mf-f-icon" style="--fc:var(--d)">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                  </div>
+                  <div class="mf-f-text">
+                    <h4>Security, Suppression &amp; Isolation</h4>
+                    <p>Encrypted credentials, multi-tenant isolation, automatic bounce suppression handling, Helmet, and
+                      structured Pino logging.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Technology Stack Categorized Deep Dive -->
+              <div class="mf-tech-section">
+                <h4 class="mf-tech-title">Technology Stack &amp; Infrastructure</h4>
+                <div class="mf-tech-grid">
+                  <div class="mf-tech-col">
+                    <span class="mf-tech-heading">Frontend &amp; UI</span>
+                    <div class="mf-tech-pills">
+                      <span>React.js</span>
+                      <span>Vite</span>
+                      <span>TypeScript</span>
+                      <span>Tailwind CSS</span>
+                      <span>shadcn/ui</span>
+                      <span>Radix UI</span>
+                      <span>TanStack Query</span>
+                      <span>TanStack Table</span>
+                      <span>Recharts</span>
+                    </div>
+                  </div>
+
+                  <div class="mf-tech-col">
+                    <span class="mf-tech-heading">Backend &amp; APIs</span>
+                    <div class="mf-tech-pills">
+                      <span>Node.js</span>
+                      <span>Express.js</span>
+                      <span>TypeScript</span>
+                      <span>REST APIs</span>
+                      <span>Helmet</span>
+                      <span>Pino Logger</span>
+                    </div>
+                  </div>
+
+                  <div class="mf-tech-col">
+                    <span class="mf-tech-heading">Database &amp; Queues</span>
+                    <div class="mf-tech-pills">
+                      <span>PostgreSQL</span>
+                      <span>Prisma ORM</span>
+                      <span>Redis</span>
+                      <span>BullMQ</span>
+                      <span>Multi-Tenant Schemas</span>
+                    </div>
+                  </div>
+
+                  <div class="mf-tech-col">
+                    <span class="mf-tech-heading">Email Infrastructure</span>
+                    <div class="mf-tech-pills">
+                      <span>Amazon SES</span>
+                      <span>Mailgun</span>
+                      <span>SendGrid</span>
+                      <span>Nodemailer</span>
+                      <span>SPF / DKIM / DMARC</span>
+                    </div>
+                  </div>
+
+                  <div class="mf-tech-col full">
+                    <span class="mf-tech-heading">Editor &amp; Utilities</span>
+                    <div class="mf-tech-pills">
+                      <span>Monaco Editor</span>
+                      <span>MJML</span>
+                      <span>React Email</span>
+                      <span>DOMPurify</span>
+                      <span>PapaParse (CSV)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bottom Action & Collapse Bar -->
+              <div class="mf-bottom-bar">
+                <button class="btn" type="button" onclick="toggleMfCard(false)">
+                  <span>Collapse Platform Details</span> <span class="mf-arrow"
+                    style="transform:rotate(180deg)">▾</span>
+                </button>
+                <div class="mf-cta-row">
+                  <a class="btn p" href="#contact">Inquire for Early Access</a>
+                  <a class="btn"
+                    href="mailto:iconic.chandu777@gmail.com?subject=Mailo%20Platform%20Demo%20Inquiry">Request Live Demo
+                    ↗</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div class="mq" aria-hidden="true">
       <div id="mq"></div>
     </div>
@@ -1687,7 +2839,8 @@
             <h3>I’m Chandrakant Maurya</h3>
             <p>A <b>Full Stack Developer</b> focused on building responsive, high-performance web applications using
               <b>React.js, Next.js, TypeScript and Firebase</b>. I enjoy turning ideas into intuitive digital
-              experiences through clean code, thoughtful design and practical problem-solving.</p>
+              experiences through clean code, thoughtful design and practical problem-solving.
+            </p>
             <p>At <b>Mavericks &amp; Mushers Media Pvt. Ltd.</b> I build modern web apps, reusable UI components and API
               integrations, and I work on performance and user experience.</p>
           </div>
@@ -1755,19 +2908,33 @@
         <div class="bn">
           <div class="card sk c7 rv">
             <h3><i style="--g:var(--a)">&lt;/&gt;</i>Frontend</h3>
-            <div class="tw"><span class="tool"><b><img src="assets/images/React.png" alt="React JS" width="22" height="22"></b>React JS</span><span class="tool"><b><img src="assets/images/nextjs.svg" alt="Next.js" width="22" height="22"></b>Next.js</span><span class="tool"><b><img src="assets/images/typescript.svg" alt="TypeScript" width="22" height="22"></b>TypeScript</span><span class="tool"><b><img src="assets/images/js.webp" alt="JavaScript" width="22" height="22"></b>JavaScript</span><span class="tool"><b><img src="assets/images/html.png" alt="HTML" width="22" height="22"></b>HTML</span><span class="tool"><b><img src="assets/images/css.png" alt="CSS" width="22" height="22"></b>CSS</span><span class="tool"><b><img src="assets/images/Tailwind.png" alt="Tailwind" width="22" height="22"></b>Tailwind</span></div>
+            <div class="tw"><span class="tool"><b><img src="assets/images/React.png" alt="React JS" width="22"
+                    height="22"></b>React JS</span><span class="tool"><b><img src="assets/images/nextjs.svg"
+                    alt="Next.js" width="22" height="22"></b>Next.js</span><span class="tool"><b><img
+                    src="assets/images/typescript.svg" alt="TypeScript" width="22"
+                    height="22"></b>TypeScript</span><span class="tool"><b><img src="assets/images/js.webp"
+                    alt="JavaScript" width="22" height="22"></b>JavaScript</span><span class="tool"><b><img
+                    src="assets/images/html.png" alt="HTML" width="22" height="22"></b>HTML</span><span
+                class="tool"><b><img src="assets/images/css.png" alt="CSS" width="22" height="22"></b>CSS</span><span
+                class="tool"><b><img src="assets/images/Tailwind.png" alt="Tailwind" width="22"
+                    height="22"></b>Tailwind</span></div>
           </div>
           <div class="card sk c5 rv" style="--d:1">
             <h3><i style="--g:var(--c)">⚙</i>Backend and cloud</h3>
-            <div class="tw"><span class="tool"><b><img src="assets/images/Node.png" alt="Node JS" width="22" height="22"></b>Node JS</span><span class="tool"><b><img src="assets/images/firebase.svg" alt="Firebase" width="22" height="22"></b>Firebase</span></div>
+            <div class="tw"><span class="tool"><b><img src="assets/images/Node.png" alt="Node JS" width="22"
+                    height="22"></b>Node JS</span><span class="tool"><b><img src="assets/images/firebase.svg"
+                    alt="Firebase" width="22" height="22"></b>Firebase</span></div>
           </div>
           <div class="card sk c6 rv">
             <h3><i style="--g:var(--b)">W</i>CMS</h3>
-            <div class="tw"><span class="tool"><b><img src="assets/images/WordPress.png" alt="WordPress" width="22" height="22"></b>WordPress</span></div>
+            <div class="tw"><span class="tool"><b><img src="assets/images/WordPress.png" alt="WordPress" width="22"
+                    height="22"></b>WordPress</span></div>
           </div>
           <div class="card sk c6 rv" style="--d:1">
             <h3><i style="--g:var(--d)">✎</i>Design</h3>
-            <div class="tw"><span class="tool"><b><img src="assets/images/ps.png" alt="Photoshop" width="22" height="22"></b>Photoshop</span><span class="tool"><b><img src="assets/images/canva.webp" alt="Canva" width="22" height="22"></b>Canva</span></div>
+            <div class="tw"><span class="tool"><b><img src="assets/images/ps.png" alt="Photoshop" width="22"
+                    height="22"></b>Photoshop</span><span class="tool"><b><img src="assets/images/canva.webp"
+                    alt="Canva" width="22" height="22"></b>Canva</span></div>
           </div>
           <div class="card bars c12 rv">
             <div>
@@ -1944,8 +3111,31 @@
         setTimeout(count, 900);
         /* Scroll: progress + timeline */
         var prog = document.getElementById("prog"), tlv = document.getElementById("tlv"), tick = false;
-        function sc() { tick = false; var d = document.documentElement, mx = d.scrollHeight - innerHeight; prog.style.setProperty("--s", mx > 0 ? Math.min(scrollY / mx, 1) : 0); var r = tlv.getBoundingClientRect(); tlv.style.setProperty("--pg", Math.max(0, Math.min(1, (innerHeight * .65 - r.top) / r.height))) }
-        addEventListener("scroll", function () { if (!tick) { tick = true; requestAnimationFrame(sc) } }, { passive: true }); sc();
+        function setTlBounds() {
+          if (!tlv) return;
+          var items = tlv.querySelectorAll(".ti");
+          if (!items.length) return;
+          var last = items[items.length - 1];
+          var b = tlv.offsetHeight - (last.offsetTop + 32);
+          tlv.style.setProperty("--tl-bottom", Math.max(0, b) + "px");
+        }
+        function sc() {
+          tick = false;
+          var d = document.documentElement, mx = d.scrollHeight - innerHeight;
+          prog.style.setProperty("--s", mx > 0 ? Math.min(scrollY / mx, 1) : 0);
+          if (tlv) {
+            var r = tlv.getBoundingClientRect();
+            var items = tlv.querySelectorAll(".ti");
+            var b = items.length ? (tlv.offsetHeight - (items[items.length - 1].offsetTop + 32)) : 82;
+            var trackLen = Math.max(r.height - 32 - b, 80);
+            var progress = (innerHeight * .65 - r.top - 32) / trackLen;
+            tlv.style.setProperty("--pg", Math.max(0, Math.min(1, progress)));
+          }
+        }
+        addEventListener("scroll", function () { if (!tick) { tick = true; requestAnimationFrame(sc) } }, { passive: true });
+        addEventListener("resize", function () { setTlBounds(); sc(); }, { passive: true });
+        setTlBounds(); sc();
+        setTimeout(setTlBounds, 400);
         /* Hero: grid highlight + profile card tilt */
         if (fine && !RM) {
           var hero = document.getElementById("hero"), gh = document.getElementById("gh"), pw = document.getElementById("pw"), ex = 0, ey = 0, pend = false;
@@ -1957,11 +3147,45 @@
           }
           hero.addEventListener("pointerleave", function () { pw.style.setProperty("--rx", "0deg"); pw.style.setProperty("--ry", "0deg") });
         }
-        /* Theme, PDF, form */
+        /* Theme, form */
         var root = document.documentElement;
         document.getElementById("tg").onclick = function () { var d = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme:dark)").matches; root.dataset.theme = d ? "light" : "dark" };
-        document.getElementById("pdf").onclick = function () { window.print() };
         document.getElementById("f").addEventListener("submit", function (e) { e.preventDefault(); var t = "Hi Chandrakant, I’m " + document.getElementById("fn").value + " (" + document.getElementById("fe").value + "). " + document.getElementById("fm").value; window.open("https://wa.me/917983889813?text=" + encodeURIComponent(t), "_blank") });
+        /* Mailo card toggle */
+        function toggleMfCard(forceState) {
+          var card = document.getElementById("mfCard");
+          var btn = document.getElementById("mfBtn");
+          var bar = document.getElementById("mfToggle");
+          if (!card) return;
+          var isOpen = typeof forceState === "boolean" ? forceState : card.dataset.open !== "true";
+          card.dataset.open = isOpen ? "true" : "false";
+          if (bar) bar.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          if (btn) {
+            var textEl = btn.querySelector(".mf-btn-text");
+            if (textEl) textEl.textContent = isOpen ? "Collapse Platform Details" : "Explore Full Platform & Specs";
+          }
+        }
+        window.toggleMfCard = toggleMfCard;
+        var mfToggle = document.getElementById("mfToggle");
+        if (mfToggle) {
+          mfToggle.addEventListener("click", function (e) {
+            if (e.target.closest("a")) return;
+            toggleMfCard();
+          });
+          mfToggle.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              toggleMfCard();
+            }
+          });
+        }
+        function checkMfHash() {
+          if (location.hash === "#mailflow" || location.hash === "#mailo") {
+            toggleMfCard(true);
+          }
+        }
+        addEventListener("hashchange", checkMfHash);
+        checkMfHash();
       })();
   </script>
 </body>

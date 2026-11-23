@@ -20,6 +20,13 @@ const liveProjects = [
 
   // FullStack Projects
   {
+    name: "Mailo",
+    image: "./public/mainlogo.png",
+    liveLink: "#mailflow",
+    type: "fullstack",
+    logoBg: "#ffffff"
+  },
+  {
     name: "Deelzo",
     image: "https://www.deelzo.com/_next/image?url=%2Fplogo.png&w=256&q=75",
     liveLink: "https://www.deelzo.com/",
